@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="4">
+<testCase id="13">
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" title="Force.com Connect: FT">
       <arguments>
@@ -18,8 +18,12 @@
         <argument id="enableObjectIdLogging">
           <value class="value" valueClass="boolean">true</value>
         </argument>
-        <argument id="autoCleanup"/>
-        <argument id="cleanupConnectionName"/>
+        <argument id="autoCleanup">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="cleanupConnectionName">
+          <value class="value" valueClass="string">ftadmin</value>
+        </argument>
         <argument id="logFileLocation"/>
         <argument id="webBrowserType">
           <value class="value" valueClass="string">Firefox</value>
@@ -1850,6 +1854,18 @@
           </type>
         </apiParam>
       </generatedParameters>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" name="ApexDeleteObject" title="Delete Object: {OpportunityId}">
+      <arguments>
+        <argument id="objectId">
+          <value class="variable">
+            <path element="OpportunityId"/>
+          </value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">FT</value>
+        </argument>
+      </arguments>
     </apiCall>
   </steps>
 </testCase>
