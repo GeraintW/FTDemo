@@ -1,2 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase/>
+<testCase>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" title="Force.com Connect: FT">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">FT</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">FT</value>
+        </argument>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="environment"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Global</value>
+        </argument>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="webBrowserType">
+          <value class="value" valueClass="string">Chrome</value>
+        </argument>
+        <argument id="vfDebug"/>
+      </arguments>
+    </apiCall>
+  </steps>
+</testCase>
