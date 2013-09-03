@@ -222,7 +222,7 @@
           </value>
         </argument>
         <argument id="FirstName">
-          <value class="value" valueClass="string">B2BAuto</value>
+          <value class="value" valueClass="string">B2BAuto2</value>
         </argument>
         <argument id="Salutation">
           <value class="value" valueClass="string">Mr</value>
