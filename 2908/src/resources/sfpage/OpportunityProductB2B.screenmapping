@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<uiScreen basedOn="sf:vfpage:page=OpportunityProductB2B" binding="sf:ui:binding:object?object=OpportunityLineItem" defaultAfterActions="ui:locator?name=Save&amp;path=theForm%2FOpportunityEdit%2FPageBlockButtons" label="OpportunityProductB2B" name="OpportunityProductB2B" type="vfPage">
+  <uiBlock name="theForm" source="apex:form[@id='theForm']">
+    <uiBlock label="Opportunity Edit" name="OpportunityEdit" source="apex:pageBlock[1]">
+      <uiBlock name="PageBlockButtons" source="apex:pageBlockButtons[1]" visualGrouping="true">
+        <uiButton binding="sf:ui:binding:object?object=OpportunityLineItem&amp;action=saveOppProduct" label="Save" name="Save" source="apex:commandButton[@value='Save']" value="Save"/>
+        <uiButton binding="sf:ui:binding:object?object=OpportunityLineItem&amp;action=saveOppProductAndNewDigital" label="Save &amp; New Digital Product" name="Save &amp; New Digital Product" source="apex:commandButton[@value='Save &amp; New Digital Product']" value="Save &amp; New Digital Product"/>
+        <uiButton binding="sf:ui:binding:object?object=OpportunityLineItem&amp;action=saveOppProductAndNewPrint" label="Save &amp; New Print Product" name="Save &amp; New Print Product" source="apex:commandButton[@value='Save &amp; New Print Product']" value="Save &amp; New Print Product"/>
+        <uiButton binding="sf:ui:binding:object?object=OpportunityLineItem&amp;action=saveOppProductAndNewSynd" label="Save &amp; New Product" name="Save &amp; New Product" source="apex:commandButton[@value='Save &amp; New Product']" value="Save &amp; New Product"/>
+        <uiButton binding="sf:ui:binding:object?object=OpportunityLineItem&amp;action=cancelOppProduct" label="Cancel" name="Cancel" source="apex:commandButton[@value='Cancel']" value="Cancel"/>
+      </uiBlock>
+      <uiBlock label="Product Information" layout="sf:ui:layout:pageBlockSection?columns=2&amp;vf=true" name="Page Block Section_1" source="apex:pageBlockSection[1]" visualGrouping="true">
+        <uiControl binding="sf:ui:binding:object?object=OpportunityLineItem&amp;field=OpportunityId" label="Opportunity" name="OpportunityId" type="text"/>
+        <uiControl binding="sf:ui:binding:object?object=OpportunityLineItem&amp;field=TotalPriceEditable__c" name="TotalPriceEditable__c" type="text"/>
+        <uiControl binding="sf:ui:binding:object?object=OpportunityLineItem&amp;field=PricebookEntry.Product2Id" label="Product" name="PricebookEntryId" type="select"/>
+        <uiControl binding="sf:ui:binding:object?object=OpportunityLineItem&amp;field=Calculator_Price__c" name="PricebookEntryId" type="text"/>
+        <uiControl binding="sf:ui:binding:object?object=OpportunityLineItem&amp;field=Content_Set__c" name="Content_Set__c" type="text"/>
+        <uiControl binding="sf:ui:binding:object?object=OpportunityLineItem&amp;field=Fulfilment_Method_Syndication_Contract__c" name="Fulfilment_Method_Syndication_Contract__c" type="text"/>
+        <uiControl binding="sf:ui:binding:object?object=OpportunityLineItem&amp;field=Embargo__c" name="Embargo__c" type="text"/>
+        <uiControl binding="sf:ui:binding:object?object=OpportunityLineItem&amp;field=Video_Usage__c" name="Video_Usage__c" type="text"/>
+        <uiControl binding="sf:ui:binding:object?object=OpportunityLineItem&amp;field=Embargo_Period__c" name="Embargo_Period__c" type="text"/>
+        <uiControl binding="sf:ui:binding:object?object=OpportunityLineItem&amp;field=Education__c" name="Education__c" type="text"/>
+        <uiBlock label="Maximum permitted use" layout="sf:ui:layout:pageBlockSection?columns=2&amp;vf=true" name="maxUsage" source="apex:pageBlockSection[@id='maxUsage']" visualGrouping="true">
+          <uiCompositeControl name="PageBlockSectionItem_1" source="apex:pageBlockSectionItem[1]">
+            <uiControl binding="sf:ui:binding:object?object=OpportunityLineItem&amp;field=Maximum_Permitted_Print_Usage__c" name="Maximum_Permitted_Print_Usage__c" source="apex:inputField[@value = '{!opportunityProduct.Maximum_Permitted_Print_Usage__c}']" type="text">
+              <type>
+                <textType/>
+              </type>
+            </uiControl>
+          </uiCompositeControl>
+          <uiCompositeControl name="PageBlockSectionItem_2" source="apex:pageBlockSectionItem[2]">
+            <uiControl binding="sf:ui:binding:object?object=OpportunityLineItem&amp;field=Maximum_Permitted_Print_Usage_Period__c" name="Maximum_Permitted_Print_Usage_Period__c" source="apex:inputField[@value = '{!opportunityProduct.Maximum_Permitted_Print_Usage_Period__c}']" type="text">
+              <type>
+                <textType/>
+              </type>
+            </uiControl>
+          </uiCompositeControl>
+          <uiCompositeControl name="PageBlockSectionItem_3" source="apex:pageBlockSectionItem[3]">
+            <uiControl binding="sf:ui:binding:object?object=OpportunityLineItem&amp;field=Maximum_Permitted_Online_Usage__c" name="Maximum_Permitted_Online_Usage__c" source="apex:inputField[@value = '{!opportunityProduct.Maximum_Permitted_Online_Usage__c}']" type="text">
+              <type>
+                <textType/>
+              </type>
+            </uiControl>
+          </uiCompositeControl>
+          <uiCompositeControl name="PageBlockSectionItem_4" source="apex:pageBlockSectionItem[4]">
+            <uiControl binding="sf:ui:binding:object?object=OpportunityLineItem&amp;field=Maximum_Permitted_Online_Usage_Period__c" name="Maximum_Permitted_Online_Usage_Period__c" source="apex:inputField[@value = '{!opportunityProduct.Maximum_Permitted_Online_Usage_Period__c}']" type="text">
+              <type>
+                <textType/>
+              </type>
+            </uiControl>
+          </uiCompositeControl>
+        </uiBlock>
+      </uiBlock>
+      <uiBlock label="Pro-Rata Details - For Sales Support when migrating clients to a new licence" layout="sf:ui:layout:pageBlockSection?columns=2&amp;vf=true" name="Page Block Section_2" source="apex:pageBlockSection[2]" visualGrouping="true">
+        <uiControl binding="sf:ui:binding:object?object=OpportunityLineItem&amp;field=ProRataAmount__c" label="Pro-Rata Amount" name="ProRataAmount" source="apex:inputField[@value = '{!opportunityProduct.ProRataAmount__c}']" type="text">
+          <type>
+            <textType/>
+          </type>
+        </uiControl>
+        <uiControl binding="sf:ui:binding:object?object=OpportunityLineItem&amp;field=ProRataReason__c" label="Pro-Rata Reason" name="ProRataReason" source="apex:inputField[@value = '{!opportunityProduct.ProRataReason__c}']" type="text">
+          <type>
+            <textType/>
+          </type>
+        </uiControl>
+      </uiBlock>
+    </uiBlock>
+  </uiBlock>
+</uiScreen>

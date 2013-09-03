@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<uiScreen basedOn="sf:vfpage:page=CloneOpportunity" binding="sf:ui:binding:object?object=Opportunity" defaultAfterActions="ui:locator?name=Save&amp;path=Form%2FOpportunityEdit%2FOpportunityEdit" label="CloneOpportunity" name="CloneOpportunity" type="vfPage">
+  <uiBlock name="userMessages" source="apex:pageMessages[@id='userMessages']"/>
+  <uiBlock name="Form" source="apex:form[1]">
+    <uiBlock label="Opportunity Edit" name="OpportunityEdit" source="apex:pageBlock[1]">
+      <uiBlock label="Opportunity Edit" name="OpportunityEdit" source="apex:pageBlockButtons[1]" visualGrouping="true">
+        <uiButton binding="sf:ui:binding:object?object=Opportunity&amp;action=save" label="Save" name="Save" source="apex:commandButton[@value='Save']" value="Save"/>
+        <uiButton binding="sf:ui:binding:object?object=Opportunity&amp;action=saveAndNew" label="Save &amp; New" name="Save &amp; New" source="apex:commandButton[@value='Save &amp; New']" value="Save &amp; New"/>
+        <uiButton binding="sf:ui:binding:object?object=Opportunity&amp;action=cancel" label="Cancel" name="Cancel" source="apex:commandButton[@value='Cancel']" value="Cancel"/>
+      </uiBlock>
+      <uiBlock label="Opportunity Information" layout="sf:ui:layout:pageBlockSection?columns=2&amp;vf=true" name="Page Block Section_1" source="apex:pageblockSection[1]" visualGrouping="true">
+        <uiControl binding="sf:ui:binding:object?object=Opportunity&amp;field=AccountId" label="Account ID" name="AccountID" source="apex:inputField[@value = '{!Opp.AccountId}']" type="text">
+          <type>
+            <textType/>
+          </type>
+        </uiControl>
+        <uiControl binding="sf:ui:binding:object?object=Opportunity&amp;field=Name" label="Name" name="Name" source="apex:inputField[@value = '{!Opp.Name}']" type="text">
+          <type>
+            <textType/>
+          </type>
+        </uiControl>
+        <uiControl binding="sf:ui:binding:object?object=Opportunity&amp;field=CloseDate" label="Close Date" name="CloseDate" source="apex:inputField[@value = '{!Opp.CloseDate}']" type="text">
+          <type>
+            <textType/>
+          </type>
+        </uiControl>
+        <uiControl binding="sf:ui:binding:object?object=Opportunity&amp;field=Type" label="Opportunity Type" name="OpportunityType" source="apex:inputField[@value = '{!Opp.Type}']" type="text">
+          <type>
+            <textType/>
+          </type>
+        </uiControl>
+        <uiControl binding="sf:ui:binding:object?object=Opportunity&amp;field=StageName" label="Stage" name="Stage" source="apex:inputField[@value = '{!Opp.StageName}']" type="text">
+          <type>
+            <textType/>
+          </type>
+        </uiControl>
+        <uiControl binding="sf:ui:binding:object?object=Opportunity&amp;field=Probability" label="Probability (%)" name="Probability" source="apex:inputField[@value = '{!Opp.Probability}']" type="text">
+          <type>
+            <textType/>
+          </type>
+        </uiControl>
+        <uiControl binding="sf:ui:binding:object?object=Opportunity&amp;field=Amount" label="Amount" name="Amount" source="apex:inputField[@value = '{!Opp.Amount}']" type="text">
+          <type>
+            <textType/>
+          </type>
+        </uiControl>
+        <uiControl binding="sf:ui:binding:object?object=Opportunity&amp;field=Product_Name__c" label="Product Name" name="ProductName" source="apex:inputField[@value = '{!Opp.Product_Name__c}']" type="text">
+          <type>
+            <textType/>
+          </type>
+        </uiControl>
+      </uiBlock>
+      <uiBlock layout="sf:ui:layout:pageBlockSection?columns=1&amp;vf=true" name="Page Block Section_2" source="apex:pageBlockSection[1]" visualGrouping="true">
+        <uiControl binding="sf:ui:binding:object?object=Opportunity&amp;field=Start_Date__c" label="Trial Start Date" name="TrialStartDate" source="apex:inputField[@value = '{!Opp.Start_Date__c}']" type="text">
+          <type>
+            <textType/>
+          </type>
+        </uiControl>
+        <uiControl binding="sf:ui:binding:object?object=Opportunity&amp;field=End_Date__c" label="Trial End Date" name="TrialEndDate" source="apex:inputField[@value = '{!Opp.End_Date__c}']" type="text">
+          <type>
+            <textType/>
+          </type>
+        </uiControl>
+      </uiBlock>
+      <uiBlock label="Additional Information" layout="sf:ui:layout:pageBlockSection?columns=1&amp;vf=true" name="Page Block Section_3" source="apex:pageblockSection[2]" visualGrouping="true">
+        <uiControl binding="sf:ui:binding:object?object=Opportunity&amp;field=LeadSource" label="Lead Source" name="LeadSource" source="apex:inputField[@value = '{!Opp.LeadSource}']" type="text">
+          <type>
+            <textType/>
+          </type>
+        </uiControl>
+        <uiControl binding="sf:ui:binding:object?object=Opportunity&amp;field=NextStep" label="Next Step" name="NextStep" source="apex:inputField[@value = '{!Opp.NextStep}']" type="text">
+          <type>
+            <textType/>
+          </type>
+        </uiControl>
+      </uiBlock>
+      <uiBlock label="Description Information" layout="sf:ui:layout:pageBlockSection?columns=1&amp;vf=true" name="Page Block Section_4" source="apex:pageblockSection[3]" visualGrouping="true">
+        <uiControl binding="sf:ui:binding:object?object=Opportunity&amp;field=Description" label="Description" name="Description" source="apex:inputField[@value = '{!Opp.Description}']" type="text">
+          <type>
+            <textType/>
+          </type>
+        </uiControl>
+      </uiBlock>
+    </uiBlock>
+  </uiBlock>
+</uiScreen>
