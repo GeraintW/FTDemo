@@ -159,5 +159,43 @@
         </apiParam>
       </generatedParameters>
     </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexUpdateObject" name="ApexUpdateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.UpdateCustomObjectTestStepCommand" title="Update Object: Account = 001c000000QWaKvAAL">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">Account</value>
+        </argument>
+        <argument id="objectId">
+          <value class="value" valueClass="string">001c000000QWaKvAAL</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">AccountUpdated</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">FT</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="Type">
+          <value class="value" valueClass="string">Analyst</value>
+        </argument>
+      </arguments>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.UpdateCustomObjectTestStepCommand.ConnectionName">FT</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.UpdateCustomObjectTestStepCommand.CustomObjectName">Account</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" name="Type" title="Type">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Analyst:Analyst|Competitor:Competitor|Customer:Customer|Integrator:Integrator|Investor:Investor|Partner:Partner|Press:Press|Prospect:Prospect|Reseller:Reseller|Other:Other|Corporate:Corporate|2-9ers:2-9ers|Education:Education|Other Business:Other Business|Individual:Individual|Household:Household</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+      </generatedParameters>
+    </apiCall>
   </steps>
 </testCase>
