@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="0">
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" title="Force.com Connect: FT">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">FT</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">FT</value>
+        </argument>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="environment"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Global</value>
+        </argument>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="webBrowserType">
+          <value class="value" valueClass="string">Chrome</value>
+        </argument>
+        <argument id="vfDebug"/>
+      </arguments>
+      <parameterValueSources>
+        <parameterValueSource url="excel:templates/roles.xls?worksheet=Sheet1&amp;range=B1%3AC86&amp;namesLocation=FirstRowOfRange&amp;whereComparison=EqualTo" variableName="ExcelData" variableScope="Folder">
+          <cacheToken>C:/Users/Geraint/Documents/GitHub/Egit/FTDemo/2908/templates/roles.xls;1378236885259</cacheToken>
+          <cachedParameters>
+            <apiParam name="Role"/>
+            <apiParam name="ReportsTo"/>
+          </cachedParameters>
+        </parameterValueSource>
+      </parameterValueSources>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" title="For Each: {ExcelData}=&gt;Row">
+      <arguments>
+        <argument id="list">
+          <value class="variable">
+            <path element="ExcelData"/>
+          </value>
+        </argument>
+        <argument id="fromItem">
+          <value class="value" valueClass="decimal">1</value>
+        </argument>
+        <argument id="valueName">
+          <value class="value" valueClass="string">Row</value>
+        </argument>
+        <argument id="continueOnFailure"/>
+      </arguments>
+      <clauses>
+        <clause name="substeps">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" title="SOQL Query: select ParentRoleId&#10;     from UserRole where name = '{Row.Role}'=&gt;UserRoleRows">
+              <arguments>
+                <argument id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">select ParentRoleId
+     from UserRole where name = '</value>
+                      <variable>
+                        <path element="Row"/>
+                        <path element="Role"/>
+                      </variable>
+                      <value valueClass="string">'</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">FT</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">UserRoleRows</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" title="If: {UserRoleRows.ParentRoleId = null}">
+              <arguments>
+                <argument id="condition">
+                  <value class="eq">
+                    <lhs class="variable">
+                      <path element="UserRoleRows"/>
+                      <path element="ParentRoleId"/>
+                    </lhs>
+                  </value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="then">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" title="Assert: {Row.ReportsTo} EqualTo  ">
+                      <arguments>
+                        <argument id="expectedValue">
+                          <value class="variable">
+                            <path element="Row"/>
+                            <path element="ReportsTo"/>
+                          </value>
+                        </argument>
+                        <argument id="actualValue">
+                          <value class="value" valueClass="string"> </value>
+                        </argument>
+                        <argument id="comparisonType">
+                          <value class="value" valueClass="string">EqualTo</value>
+                        </argument>
+                        <argument id="caseSensitive">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
+                        <argument id="nullGreater">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
+                        <argument id="matchMultiLine">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
+                        <argument id="matchDotAll">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
+                        <argument id="failureMessage"/>
+                      </arguments>
+                    </apiCall>
+                  </steps>
+                </clause>
+                <clause name="else">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" title="SOQL Query: select Name from UserRole where id = '{UserRoleRows.ParentRoleId}' =&gt;UserRoleRowsName">
+                      <arguments>
+                        <argument id="soqlQuery">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">select Name from UserRole where id = '</value>
+                              <variable>
+                                <path element="UserRoleRows"/>
+                                <path element="ParentRoleId"/>
+                              </variable>
+                              <value valueClass="string">' </value>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">FT</value>
+                        </argument>
+                        <argument id="resultListName">
+                          <value class="value" valueClass="string">UserRoleRowsName</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" title="Assert: {UserRoleRowsName.Name} EqualTo {Row.ReportsTo}">
+                      <arguments>
+                        <argument id="expectedValue">
+                          <value class="variable">
+                            <path element="UserRoleRowsName"/>
+                            <path element="Name"/>
+                          </value>
+                        </argument>
+                        <argument id="actualValue">
+                          <value class="variable">
+                            <path element="Row"/>
+                            <path element="ReportsTo"/>
+                          </value>
+                        </argument>
+                        <argument id="comparisonType">
+                          <value class="value" valueClass="string">EqualTo</value>
+                        </argument>
+                        <argument id="caseSensitive">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
+                        <argument id="nullGreater">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
+                        <argument id="matchMultiLine">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
+                        <argument id="matchDotAll">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
+                        <argument id="failureMessage"/>
+                      </arguments>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>
