@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testProject>
+  <title>/2908/.testproject</title>
+  <configPath>config</configPath>
+  <testsPath>tests</testsPath>
+  <templatesPath>templates</templatesPath>
+  <sourcePath>src</sourcePath>
+  <secureStoragePath>.secrets</secureStoragePath>
+  <jdbcDrivers>
+    <jdbcDriver driverClass="oracle.jdbc.OracleDriver" name="Oracle" title="Oracle"/>
+    <jdbcDriver driverClass="com.mysql.jdbc.Driver" name="MySQL" title="MySQL"/>
+  </jdbcDrivers>
+  <configurationItems>
+    <configurationItem name="forcedotcomorgs" title="Force.com Orgs"/>
+  </configurationItems>
+  <connectionClasses>
+    <connectionClass name="sf">
+      <connections>
+        <connection name="ftadmin">
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="8600868f-e1bd-4ef4-8f93-f87c32a02163" url="sf:user=geraintwaters@googlemail.com.admin;password={password};securityToken={securityToken};environment=SANDBOX"/>
+          </connectionUrls>
+        </connection>
+        <connection name="FT">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="9522c803-67ad-4224-b119-a5d20fe17aff" url="sf:user=geraintwaters@googlemail.com;password={password};securityToken={securityToken};environment=SANDBOX;metadataConnection=ftadmin"/>
+          </connectionUrls>
+        </connection>
+      </connections>
+    </connectionClass>
+  </connectionClasses>
+</testProject>
