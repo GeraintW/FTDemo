@@ -10,6 +10,37 @@
     <jdbcDriver driverClass="oracle.jdbc.OracleDriver" name="Oracle" title="Oracle"/>
     <jdbcDriver driverClass="com.mysql.jdbc.Driver" name="MySQL" title="MySQL"/>
   </jdbcDrivers>
+  <environments>
+    <environment name="SANDBOX">
+      <summary/>
+    </environment>
+  </environments>
+  <variables>
+    <testVariable name="ExampleVariable">
+      <valueType class="textType"/>
+      <summary/>
+      <values>
+        <testVariableValue>
+          <value class="value" updated="2" valueClass="string">100</value>
+        </testVariableValue>
+        <testVariableValue envName="SANDBOX">
+          <value class="value" updated="2" valueClass="string">200</value>
+        </testVariableValue>
+      </values>
+    </testVariable>
+    <testVariable name="AnotherVariable">
+      <valueType class="textType"/>
+      <summary/>
+      <values>
+        <testVariableValue>
+          <value class="value" valueClass="string">text</value>
+        </testVariableValue>
+        <testVariableValue envName="SANDBOX">
+          <value class="value" valueClass="string">text_sandbox</value>
+        </testVariableValue>
+      </values>
+    </testVariable>
+  </variables>
   <configurationItems>
     <configurationItem name="forcedotcomorgs" title="Force.com Orgs"/>
   </configurationItems>
