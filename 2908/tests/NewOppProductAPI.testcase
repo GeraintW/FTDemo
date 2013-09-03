@@ -1,0 +1,1855 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="4">
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" title="Force.com Connect: FT">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">FT</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">FT</value>
+        </argument>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="environment"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Global</value>
+        </argument>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="webBrowserType">
+          <value class="value" valueClass="string">Firefox</value>
+        </argument>
+        <argument id="vfDebug"/>
+        <argument id="interaction">
+          <value class="uiInteraction"/>
+        </argument>
+        <argument id="interactionDescription">
+          <value class="value" valueClass="string">the ? </value>
+        </argument>
+        <argument id="wait"/>
+        <argument id="captureBefore"/>
+        <argument id="captureAfter"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" title="Set Values: Id">
+      <arguments>
+        <argument id="values">
+          <value class="valueList">
+            <namedValues>
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">Id</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="compound">
+                  <parts>
+                    <value valueClass="string">Provar</value>
+                    <funcCall id="UniqueId"/>
+                  </parts>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" title="Create Object: Account=&gt;AccountId">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">Account</value>
+        </argument>
+        <argument id="resultIdName">
+          <value class="value" valueClass="string">AccountId</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">FT</value>
+        </argument>
+        <argument id="Name">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">Account</value>
+              <variable>
+                <path element="Id"/>
+              </variable>
+            </parts>
+          </value>
+        </argument>
+        <argument id="RecordTypeId">
+          <value class="value" valueClass="string">012D0000000Qb4zIAC</value>
+        </argument>
+        <argument id="CurrencyIsoCode">
+          <value class="value" valueClass="string">GBP</value>
+        </argument>
+        <argument id="AccountSource">
+          <value class="value" valueClass="string">Default - Please update</value>
+        </argument>
+        <argument id="Sector__c">
+          <value class="value" valueClass="string">Banking</value>
+        </argument>
+        <argument id="Sub_Sector__c">
+          <value class="value" valueClass="string">Central banks</value>
+        </argument>
+        <argument id="Newsagents__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="Account_Type__c">
+          <value class="value" valueClass="string">Agency</value>
+        </argument>
+        <argument id="Archive__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">FT</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">Account</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" name="Name" title="Name">
+          <type>
+            <textType>
+              <constraints>
+                <valueConstraint name="maxLength">255</valueConstraint>
+                <valueConstraint name="maxLines">1</valueConstraint>
+              </constraints>
+            </textType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="RecordTypeId" title="RecordTypeId">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="CurrencyIsoCode" title="CurrencyIsoCode">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">AUD:Australian Dollar|GBP:British Pound|CAD:Canadian Dollar|EUR:Euro|HKD:Hong Kong Dollar|JPY:Japanese Yen|SGD:Singapore Dollar|CHF:Swiss Franc|USD:U.S. Dollar</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="AccountSource" title="AccountSource">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">3 Month Trialist:3 Month Trialist|Agency:Agency|ASEAN Leads:ASEAN Leads|Attributor:Attributor|BB/CC Sept '11 event:BB/CC Sept '11 event|BC/CC New York, Oct '11:BC/CC New York, Oct '11|BC Feedback Meetings:BC Feedback Meetings|Bloomberg Leads:Bloomberg Leads|Brazil 400:Brazil 400|Brazil Confidential Website:Brazil Confidential Website|CC Custom Research:CC Custom Research|Campaign:Campaign|Channel Partner:Channel Partner|China Confidential Funds Website:China Confidential Funds Website|China Confidential Website:China Confidential Website|China Inv Summit '11 London:China Inv Summit '11 London|China Watch Subscriber:China Watch Subscriber|Concurrency:Concurrency|Conference Leads:Conference Leads|Contact Us Form:Contact Us Form|Current Affairs Lead:Current Affairs Lead|Current Client:Current Client|Current Subscriber - Basic:Current Subscriber - Basic|Current Subscriber - Premium:Current Subscriber - Premium|Customer Referral:Customer Referral|Default - Please update:Default - Please update|Document Download:Document Download|Email Enquiry:Email Enquiry|Existing Customer:Existing Customer|Free Trial Form:Free Trial Form|FT.com Email/Ad Campaign:FT.com Email/Ad Campaign|FT Content:FT Content|FT Event:FT Event|FT Referral:FT Referral|FT TILT:FT TILT|Google Research:Google Research|GSP Report Website:GSP Report Website|Industry Event:Industry Event|Information / Research Managers:Information / Research Managers|Inhouse Research - Emerging Markets:Inhouse Research - Emerging Markets|Inhouse Research - Hedge Funds:Inhouse Research - Hedge Funds|Inhouse Research - Morningstar Funds:Inhouse Research - Morningstar Funds|Inhouse Research - Private Equity:Inhouse Research - Private Equity|Internal Advertising Dept:Internal Advertising Dept|Ken's Leads:Ken's Leads|LinkedIn:LinkedIn|Manila Research:Manila Research|Marketing/Third Party List:Marketing/Third Party List|MDC Leads:MDC Leads|Mergermarket Leads:Mergermarket Leads|Munk Debate - Jun '11:Munk Debate - Jun '11|Networking Meeting:Networking Meeting|Nikkei:Nikkei|NYC Event - Oct '10:NYC Event - Oct '10|NYC - Google Maps:NYC - Google Maps|OL Leads:OL Leads|Other:Other|Overcopying:Overcopying|Partner - CBBC:Partner - CBBC|Partner - Scott Thoreau:Partner - Scott Thoreau|Phone Enquiry:Phone Enquiry|Prestowitz e-mail:Prestowitz e-mail|Print Customer:Print Customer|QFII list:QFII list|Referral - Client/Prospect:Referral - Client/Prospect|Referral - Editorial Team:Referral - Editorial Team|Sales Inbox:Sales Inbox|Scout:Scout|Third Party List:Third Party List|US China Trade Council Member:US China Trade Council Member|Asean Confidential:Asean Confidential|Danwei:Danwei|Word of Mouth:Word of Mouth</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Sector__c" title="Sector__c">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Administration &amp; support services:Administration &amp; support services|Banking:Banking|Basic resources:Basic resources|Construction:Construction|Consumer goods:Consumer goods|Education:Education|Financial services:Financial services|Government:Government|Healthcare:Healthcare|Industrial goods &amp; services:Industrial goods &amp; services|Insurance:Insurance|Media:Media|Non-profit:Non-profit|Professional services:Professional services|Real estate:Real estate|Retail:Retail|Technology:Technology|Telecommunications:Telecommunications|Travel &amp; leisure:Travel &amp; leisure|Utilities:Utilities</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Sub_Sector__c" title="Sub_Sector__c">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Employment agencies:Employment agencies|Facilities management:Facilities management|Membership organisations:Membership organisations|Office administration:Office administration|Security services:Security services|Waste &amp; disposal services:Waste &amp; disposal services|Central banks:Central banks|Commercial banks:Commercial banks|Investment banks:Investment banks|Private banks:Private banks|Retail banks:Retail banks|Chemicals:Chemicals|Forestry &amp; paper:Forestry &amp; paper|Mining:Mining|Oil &amp; gas:Oil &amp; gas|Building materials:Building materials|Heavy construction:Heavy construction|Automobiles &amp; parts:Automobiles &amp; parts|Food &amp; beverages:Food &amp; beverages|Personal &amp; household goods:Personal &amp; household goods|Business schools:Business schools|Colleges:Colleges|Universities:Universities|Vocational &amp; technical training:Vocational &amp; technical training|Asset/Fund managers:Asset/Fund managers|Consumer finance:Consumer finance|Mortgage finance:Mortgage finance|Security &amp; commodity brokers:Security &amp; commodity brokers|Equity Investment Instruments:Equity Investment Instruments|Non equity Investment Instruments:Non equity Investment Instruments|Wealth managers:Wealth managers|Executive &amp; legislative bodies:Executive &amp; legislative bodies|Finance and monetary policy:Finance and monetary policy|General public administration:General public administration|National security and international affairs:National security and international affairs|Healthcare equipment &amp; services:Healthcare equipment &amp; services|Pharmaceuticals &amp; biotechnology:Pharmaceuticals &amp; biotechnology|Aerospace &amp; defence:Aerospace &amp; defence|Delivery services:Delivery services|Electronic &amp; electrical equipment:Electronic &amp; electrical equipment|General industrials:General industrials|Industrial engineering:Industrial engineering|Transportation:Transportation|Insurance brokers &amp; agencies:Insurance brokers &amp; agencies|Life insurance:Life insurance|Non-life insurance:Non-life insurance|Reinsurance:Reinsurance|Broadcasting &amp; entertainment:Broadcasting &amp; entertainment|Media agencies:Media agencies|Publishing:Publishing|Charities:Charities|Non-government organisations:Non-government organisations|Accountancy &amp; tax advisory:Accountancy &amp; tax advisory|Advertising and market research:Advertising and market research|Architects:Architects|Law firms:Law firms|Management consultancy:Management consultancy|PR agencies:PR agencies|Property consultancy:Property consultancy|Real estate investment:Real estate investment|Real estate services:Real estate services|Apparel retailers:Apparel retailers|Consumer services:Consumer services|Food &amp; drug retailers:Food &amp; drug retailers|General retailers:General retailers|Computer services:Computer services|Data processing &amp; hosting:Data processing &amp; hosting|Internet related services:Internet related services|Software:Software|Technology hardware &amp; equipment:Technology hardware &amp; equipment|Fixed line telecommunications:Fixed line telecommunications|Mobile telecommunications:Mobile telecommunications|Airlines:Airlines|Gambling:Gambling|Hotels:Hotels|Recreational services:Recreational services|Restaurants &amp; bars:Restaurants &amp; bars|Travel &amp; tourism:Travel &amp; tourism|Electricity:Electricity|Gas distribution:Gas distribution|Water:Water</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Newsagents__c" title="Newsagents__c">
+          <summary>This checkbox identifies this account as a "Newsagents"</summary>
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Account_Type__c" title="Account_Type__c">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Agency:Agency|Distributor:Distributor|Channel:Channel|Corp - Asia:Corp - Asia|Corp - CEMEA:Corp - CEMEA|Corp - Syndication:Corp - Syndication|Corp - UK &amp; I:Corp - UK &amp; I|Corp - USA:Corp - USA|Media Syndication:Media Syndication|Online Sign-up:Online Sign-up|Publisher:Publisher|Reprints and Permissions:Reprints and Permissions|Corporate - US:Corporate - US|Corportate - Asia:Corportate - Asia|Corp - SME:Corp - SME|Education:Education</valueConstraint>
+                <valueConstraint name="multiSelection">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Archive__c" title="Archive__c">
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+      </generatedParameters>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" title="Create Object: Contact=&gt;ContactId">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">Contact</value>
+        </argument>
+        <argument id="resultIdName">
+          <value class="value" valueClass="string">ContactId</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">FT</value>
+        </argument>
+        <argument id="AccountId">
+          <value class="variable">
+            <path element="AccountId"/>
+          </value>
+        </argument>
+        <argument id="LastName">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">Contact</value>
+              <variable>
+                <path element="Id"/>
+              </variable>
+            </parts>
+          </value>
+        </argument>
+        <argument id="FirstName">
+          <value class="value" valueClass="string">B2BAuto</value>
+        </argument>
+        <argument id="Salutation">
+          <value class="value" valueClass="string">Mr</value>
+        </argument>
+        <argument id="RecordTypeId">
+          <value class="value" valueClass="string">012D0000000QfepIAC</value>
+        </argument>
+        <argument id="MailingCountry">
+          <value class="value" valueClass="string">United Kingdom</value>
+        </argument>
+        <argument id="Phone">
+          <value class="value" valueClass="string">1234567890</value>
+        </argument>
+        <argument id="Title">
+          <value class="value" valueClass="string">Director</value>
+        </argument>
+        <argument id="LeadSource">
+          <value class="value" valueClass="string">Current Client</value>
+        </argument>
+        <argument id="CurrencyIsoCode">
+          <value class="value" valueClass="string">GBP</value>
+        </argument>
+        <argument id="HasOptedOutOfEmail">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="HasOptedOutOfFax">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="DoNotCall">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="Blow_Out__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="Industry_Sectors__c">
+          <value class="value" valueClass="string">Default - Please Update</value>
+        </argument>
+        <argument id="Preferred_language__c">
+          <value class="value" valueClass="string">English</value>
+        </argument>
+        <argument id="Job_Function__c">
+          <value class="value" valueClass="string">IT</value>
+        </argument>
+        <argument id="Marketing_Opt_Out__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="Third_Party_Opt_Out1__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="Do_Not_Mail__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="Do_Not_Solicit__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="Newsletter_B2B__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="MailingCountryLookup__c">
+          <value class="value" valueClass="string">a15c0000000NBLbAAO</value>
+        </argument>
+        <argument id="mkto2__Original_Source_Info__c">
+          <value class="value" valueClass="string">Contact</value>
+        </argument>
+        <argument id="mkto2__Original_Source_Type__c">
+          <value class="value" valueClass="string">salesforce.com</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">FT</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">Contact</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" name="AccountId" title="AccountId">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="LastName" title="LastName">
+          <type>
+            <textType>
+              <constraints>
+                <valueConstraint name="maxLength">80</valueConstraint>
+                <valueConstraint name="maxLines">1</valueConstraint>
+              </constraints>
+            </textType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="FirstName" title="FirstName">
+          <type>
+            <textType>
+              <constraints>
+                <valueConstraint name="maxLength">40</valueConstraint>
+                <valueConstraint name="maxLines">1</valueConstraint>
+              </constraints>
+            </textType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Salutation" title="Salutation">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Miss:Miss|Sir:Sir|Lady:Lady|Lord:Lord|Duke:Duke|Mr:Mr|Mrs:Mrs|Dr:Dr|Ms:Ms|Prof:Prof</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="RecordTypeId" title="RecordTypeId">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="MailingCountry" title="MailingCountry">
+          <type>
+            <textType>
+              <constraints>
+                <valueConstraint name="maxLength">80</valueConstraint>
+                <valueConstraint name="maxLines">1</valueConstraint>
+              </constraints>
+            </textType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Phone" title="Phone">
+          <summary>Use the full international dialing code for all phone and fax numbers eg 44 800 028 1407</summary>
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Title" title="Title">
+          <type>
+            <textType>
+              <constraints>
+                <valueConstraint name="maxLength">128</valueConstraint>
+                <valueConstraint name="maxLines">1</valueConstraint>
+              </constraints>
+            </textType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="LeadSource" title="LeadSource">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">3 Month Trialist:3 Month Trialist|Agency:Agency|ASEAN Leads:ASEAN Leads|Attributor:Attributor|BB/CC Sept '11 event:BB/CC Sept '11 event|BC/CC New York, Oct '11:BC/CC New York, Oct '11|BC Feedback Meetings:BC Feedback Meetings|Bloomberg Leads:Bloomberg Leads|Brazil 400:Brazil 400|Brazil Confidential Website:Brazil Confidential Website|CC Custom Research:CC Custom Research|Campaign:Campaign|Channel Partner:Channel Partner|China Confidential Funds Website:China Confidential Funds Website|China Confidential Website:China Confidential Website|China Inv Summit '11 London:China Inv Summit '11 London|China Watch Subscriber:China Watch Subscriber|Concurrency:Concurrency|Conference Leads:Conference Leads|Contact Us Form:Contact Us Form|Current Affairs Lead:Current Affairs Lead|Current Client:Current Client|Current Subscriber - Basic:Current Subscriber - Basic|Current Subscriber - Premium:Current Subscriber - Premium|Customer Referral:Customer Referral|Default - Please update:Default - Please update|Document Download:Document Download|Email Enquiry:Email Enquiry|Existing Customer:Existing Customer|Free Trial Form:Free Trial Form|FT.com Email/Ad Campaign:FT.com Email/Ad Campaign|FT Content:FT Content|FT Event:FT Event|FT Referral:FT Referral|FT TILT:FT TILT|Google Research:Google Research|GSP Report Website:GSP Report Website|Industry Event:Industry Event|Information / Research Managers:Information / Research Managers|Inhouse Research - Emerging Markets:Inhouse Research - Emerging Markets|Inhouse Research - Hedge Funds:Inhouse Research - Hedge Funds|Inhouse Research - Morningstar Funds:Inhouse Research - Morningstar Funds|Inhouse Research - Private Equity:Inhouse Research - Private Equity|Internal Advertising Dept:Internal Advertising Dept|Ken's Leads:Ken's Leads|LinkedIn:LinkedIn|Manila Research:Manila Research|Marketing/Third Party List:Marketing/Third Party List|MDC Leads:MDC Leads|Mergermarket Leads:Mergermarket Leads|Munk Debate - Jun '11:Munk Debate - Jun '11|Networking Meeting:Networking Meeting|Nikkei:Nikkei|NYC Event - Oct '10:NYC Event - Oct '10|NYC - Google Maps:NYC - Google Maps|OL Leads:OL Leads|Other:Other|Overcopying:Overcopying|Partner - CBBC:Partner - CBBC|Partner - Scott Thoreau:Partner - Scott Thoreau|Phone Enquiry:Phone Enquiry|Prestowitz e-mail:Prestowitz e-mail|Print Customer:Print Customer|QFII list:QFII list|Referral - Client/Prospect:Referral - Client/Prospect|Referral - Editorial Team:Referral - Editorial Team|Sales Inbox:Sales Inbox|Scout:Scout|Third Party List:Third Party List|US China Trade Council Member:US China Trade Council Member|Asean Confidential:Asean Confidential|Danwei:Danwei|Word of Mouth:Word of Mouth</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="CurrencyIsoCode" title="CurrencyIsoCode">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">AUD:Australian Dollar|GBP:British Pound|CAD:Canadian Dollar|EUR:Euro|HKD:Hong Kong Dollar|JPY:Japanese Yen|SGD:Singapore Dollar|CHF:Swiss Franc|USD:U.S. Dollar</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="HasOptedOutOfEmail" title="HasOptedOutOfEmail">
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="HasOptedOutOfFax" title="HasOptedOutOfFax">
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="DoNotCall" title="DoNotCall">
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Blow_Out__c" title="Blow_Out__c">
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Industry_Sectors__c" title="Industry_Sectors__c">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Accountancy:Accountancy|Default - Please Update:Default - Please Update|Financial:Financial|Legal:Legal|Construction:Construction|Government:Government|Real Estate:Real Estate|Industrial:Industrial|Educational:Educational|Technology:Technology|PR:PR|Media:Media|Retail:Retail</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Preferred_language__c" title="Preferred_language__c">
+          <summary>Select the language that this contact would prefer to communicate in</summary>
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">English:English|Cantonese:Cantonese|Mandarin:Mandarin|Tagalog:Tagalog|Japanese:Japanese|Spanish:Spanish</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Job_Function__c" title="Job_Function__c">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Accounts (handles the financial administration):Accounts (handles the financial administration)|Accounts Function:Accounts Function|Administrator (handles administration of the contract):Administrator (handles administration of the contract)|Buyer (responsible for the contract):Buyer (responsible for the contract)|Contract:Contract|Customer Service:Customer Service|Decider (makes the final decision):Decider (makes the final decision)|Decision Maker:Decision Maker|Editor:Editor|End user (benefits from the service):End user (benefits from the service)|Finance:Finance|Gatekeeper (controls the flow of information):Gatekeeper (controls the flow of information)|HR:HR|Influencer (helps the decider to decide):Influencer (helps the decider to decide)|IT:IT|IT Support:IT Support|Knowledge Manager:Knowledge Manager|Legal:Legal|Librarian:Librarian|Main:Main|Marcoms:Marcoms|Marketing:Marketing|Operational:Operational|Procurement:Procurement|Publisher:Publisher|Relationship Manager:Relationship Manager|Research:Research|Sales:Sales|Senior Management:Senior Management|Technical:Technical</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Marketing_Opt_Out__c" title="Marketing_Opt_Out__c">
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Third_Party_Opt_Out1__c" title="Third_Party_Opt_Out1__c">
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Do_Not_Mail__c" title="Do_Not_Mail__c">
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Do_Not_Solicit__c" title="Do_Not_Solicit__c">
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Newsletter_B2B__c" title="Newsletter_B2B__c">
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="MailingCountryLookup__c" title="MailingCountryLookup__c">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="mkto2__Original_Source_Info__c" title="mkto2__Original_Source_Info__c">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="mkto2__Original_Source_Type__c" title="mkto2__Original_Source_Type__c">
+          <type>
+            <textType>
+              <constraints>
+                <valueConstraint name="maxLength">255</valueConstraint>
+                <valueConstraint name="maxLines">1</valueConstraint>
+              </constraints>
+            </textType>
+          </type>
+        </apiParam>
+      </generatedParameters>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" title="Create Object: Opportunity=&gt;OpportunityId">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">Opportunity</value>
+        </argument>
+        <argument id="resultIdName">
+          <value class="value" valueClass="string">OpportunityId</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">FT</value>
+        </argument>
+        <argument id="AccountId">
+          <value class="variable">
+            <path element="AccountId"/>
+          </value>
+        </argument>
+        <argument id="RecordTypeId">
+          <value class="value" valueClass="string">012D0000000QivOIAS</value>
+        </argument>
+        <argument id="IsPrivate">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="Name">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">Opportunity</value>
+              <variable>
+                <path element="Id"/>
+              </variable>
+            </parts>
+          </value>
+        </argument>
+        <argument id="StageName">
+          <value class="value" valueClass="string">New Opportunity</value>
+        </argument>
+        <argument id="Amount">
+          <value class="value" valueClass="decimal">190.0</value>
+        </argument>
+        <argument id="TotalOpportunityQuantity">
+          <value class="value" valueClass="decimal">3.0</value>
+        </argument>
+        <argument id="CloseDate">
+          <value class="value" valueClass="date">1380495600000</value>
+        </argument>
+        <argument id="Type">
+          <value class="value" valueClass="string">New Business</value>
+        </argument>
+        <argument id="NextStep">
+          <value class="value" valueClass="string">Call the Client</value>
+        </argument>
+        <argument id="LeadSource">
+          <value class="value" valueClass="string">Channel Partner</value>
+        </argument>
+        <argument id="ForecastCategoryName">
+          <value class="value" valueClass="string">Pipeline</value>
+        </argument>
+        <argument id="CurrencyIsoCode">
+          <value class="value" valueClass="string">GBP</value>
+        </argument>
+        <argument id="Pricebook2Id">
+          <value class="value" valueClass="string">01sD0000000Ud90IAC</value>
+        </argument>
+        <argument id="IsTrialTopaid__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="Est_Contract_End__c">
+          <value class="value" valueClass="date">1409353200000</value>
+        </argument>
+        <argument id="Est_Contract_Start__c">
+          <value class="value" valueClass="date">1377817200000</value>
+        </argument>
+        <argument id="Penalty_Clause__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="Usage_Statistics_Required__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="Licence_Type__c">
+          <value class="value" valueClass="string">Enterprise</value>
+        </argument>
+        <argument id="Royalty__c">
+          <value class="value" valueClass="string">0.0</value>
+        </argument>
+        <argument id="Licencee_Name__c">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">LicenceeName</value>
+              <variable>
+                <path element="Id"/>
+              </variable>
+            </parts>
+          </value>
+        </argument>
+        <argument id="Newslines__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="Credit_Term__c">
+          <value class="value" valueClass="string">25 Days</value>
+        </argument>
+        <argument id="Exclude_VAT_Tax__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="Notes__c">
+          <value class="value" valueClass="string">This is New Opportunity created for Testing via Provar</value>
+        </argument>
+        <argument id="Contributor__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="Licence_Solution__c">
+          <value class="value" valueClass="string">Digital Licence</value>
+        </argument>
+        <argument id="Licence_Term_Fixed__c">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="Payment_Terms__c">
+          <value class="value" valueClass="string">Annually</value>
+        </argument>
+        <argument id="Payment_Types__c">
+          <value class="value" valueClass="string">Invoice</value>
+        </argument>
+        <argument id="SLA__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="Term_1_One_Time_Use__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="Term_2_One_Time_Use_Within_Timeframe__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="Term_3_Contract_Term__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="Term_4_Perpetuity__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">FT</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">Opportunity</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" name="AccountId" title="AccountId">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="RecordTypeId" title="RecordTypeId">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="IsPrivate" title="IsPrivate">
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Name" title="Name">
+          <type>
+            <textType>
+              <constraints>
+                <valueConstraint name="maxLength">120</valueConstraint>
+                <valueConstraint name="maxLines">1</valueConstraint>
+              </constraints>
+            </textType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="StageName" title="StageName">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Prospecting/Needs/Qualification:Prospecting/Needs/Qualification|Proposal/Price Quote:Proposal/Price Quote|Trial Period:Trial Period|Negotiation Post Trial:Negotiation Post Trial|3 Month Trial:3 Month Trial|Basic Subcription:Basic Subcription|Premium Subscription:Premium Subscription|China Funds Trial:China Funds Trial|New Opportunity:New Opportunity|Quote Sent:Quote Sent|Full Proposal Sent:Full Proposal Sent|Contract Sent:Contract Sent|Signed Contract Received:Signed Contract Received|Closed Lost:Closed Lost|Renewal:Renewal</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Amount" title="Amount">
+          <type>
+            <numericType>
+              <constraints>
+                <valueConstraint name="length">18</valueConstraint>
+                <valueConstraint name="decimalPlaces">2</valueConstraint>
+              </constraints>
+            </numericType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="TotalOpportunityQuantity" title="TotalOpportunityQuantity">
+          <type>
+            <numericType>
+              <constraints>
+                <valueConstraint name="length">18</valueConstraint>
+                <valueConstraint name="decimalPlaces">2</valueConstraint>
+              </constraints>
+            </numericType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="CloseDate" title="CloseDate">
+          <summary>This field is the estimated close date and should be changed to the contract start date once closed won to ensure correct currency calculations can be made</summary>
+          <type>
+            <dateType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Type" title="Type">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Existing Business:Existing Business|New Business:New Business|Renewal:Renewal|Addendum:Addendum|Extension:Extension</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="NextStep" title="NextStep">
+          <type>
+            <textType>
+              <constraints>
+                <valueConstraint name="maxLength">255</valueConstraint>
+                <valueConstraint name="maxLines">1</valueConstraint>
+              </constraints>
+            </textType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="LeadSource" title="LeadSource">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">3 Month Trialist:3 Month Trialist|Agency:Agency|ASEAN Leads:ASEAN Leads|Attributor:Attributor|BB/CC Sept '11 event:BB/CC Sept '11 event|BC/CC New York, Oct '11:BC/CC New York, Oct '11|BC Feedback Meetings:BC Feedback Meetings|Bloomberg Leads:Bloomberg Leads|Brazil 400:Brazil 400|Brazil Confidential Website:Brazil Confidential Website|CC Custom Research:CC Custom Research|Campaign:Campaign|Channel Partner:Channel Partner|China Confidential Funds Website:China Confidential Funds Website|China Confidential Website:China Confidential Website|China Inv Summit '11 London:China Inv Summit '11 London|China Watch Subscriber:China Watch Subscriber|Concurrency:Concurrency|Conference Leads:Conference Leads|Contact Us Form:Contact Us Form|Current Affairs Lead:Current Affairs Lead|Current Client:Current Client|Current Subscriber - Basic:Current Subscriber - Basic|Current Subscriber - Premium:Current Subscriber - Premium|Customer Referral:Customer Referral|Default - Please update:Default - Please update|Document Download:Document Download|Email Enquiry:Email Enquiry|Existing Customer:Existing Customer|Free Trial Form:Free Trial Form|FT.com Email/Ad Campaign:FT.com Email/Ad Campaign|FT Content:FT Content|FT Event:FT Event|FT Referral:FT Referral|FT TILT:FT TILT|Google Research:Google Research|GSP Report Website:GSP Report Website|Industry Event:Industry Event|Information / Research Managers:Information / Research Managers|Inhouse Research - Emerging Markets:Inhouse Research - Emerging Markets|Inhouse Research - Hedge Funds:Inhouse Research - Hedge Funds|Inhouse Research - Morningstar Funds:Inhouse Research - Morningstar Funds|Inhouse Research - Private Equity:Inhouse Research - Private Equity|Internal Advertising Dept:Internal Advertising Dept|Ken's Leads:Ken's Leads|LinkedIn:LinkedIn|Manila Research:Manila Research|Marketing/Third Party List:Marketing/Third Party List|MDC Leads:MDC Leads|Mergermarket Leads:Mergermarket Leads|Munk Debate - Jun '11:Munk Debate - Jun '11|Networking Meeting:Networking Meeting|Nikkei:Nikkei|NYC Event - Oct '10:NYC Event - Oct '10|NYC - Google Maps:NYC - Google Maps|OL Leads:OL Leads|Other:Other|Overcopying:Overcopying|Partner - CBBC:Partner - CBBC|Partner - Scott Thoreau:Partner - Scott Thoreau|Phone Enquiry:Phone Enquiry|Prestowitz e-mail:Prestowitz e-mail|Print Customer:Print Customer|QFII list:QFII list|Referral - Client/Prospect:Referral - Client/Prospect|Referral - Editorial Team:Referral - Editorial Team|Sales Inbox:Sales Inbox|Scout:Scout|Third Party List:Third Party List|US China Trade Council Member:US China Trade Council Member|Asean Confidential:Asean Confidential|Danwei:Danwei|Word of Mouth:Word of Mouth</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="ForecastCategoryName" title="ForecastCategoryName">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Omitted:Omitted|Pipeline:Pipeline|Best Case:Best Case|Commit:Commit|Closed:Closed</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="CurrencyIsoCode" title="CurrencyIsoCode">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">AUD:Australian Dollar|GBP:British Pound|CAD:Canadian Dollar|EUR:Euro|HKD:Hong Kong Dollar|JPY:Japanese Yen|SGD:Singapore Dollar|CHF:Swiss Franc|USD:U.S. Dollar</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Pricebook2Id" title="Pricebook2Id">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="IsTrialTopaid__c" title="IsTrialTopaid__c">
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Est_Contract_End__c" title="Est_Contract_End__c">
+          <type>
+            <dateType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Est_Contract_Start__c" title="Est_Contract_Start__c">
+          <type>
+            <dateType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Penalty_Clause__c" title="Penalty_Clause__c">
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Usage_Statistics_Required__c" title="Usage_Statistics_Required__c">
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Licence_Type__c" title="Licence_Type__c">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Print Digital Licence:Print Digital Licence|Agency Agreement:Agency Agreement|Database Licence:Database Licence|Digital Licence:Digital Licence|Distribution Agreement (FT):Distribution Agreement (FT)|Distribution Agreement (FT Business):Distribution Agreement (FT Business)|Distribution Agreement (IW):Distribution Agreement (IW)|Enterprise:Enterprise|FT.com only:FT.com only|Group:Group|Historical Archive:Historical Archive|IW Agreement:IW Agreement|Permissions:Permissions|Publisher Agreement:Publisher Agreement|Reprints:Reprints|Syndication Contracts:Syndication Contracts|Team:Team|Team Prepayment:Team Prepayment|Permissioning:Permissioning</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Royalty__c" title="Royalty__c">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Licencee_Name__c" title="Licencee_Name__c">
+          <type>
+            <textType>
+              <constraints>
+                <valueConstraint name="maxLength">255</valueConstraint>
+                <valueConstraint name="maxLines">1</valueConstraint>
+              </constraints>
+            </textType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Newslines__c" title="Newslines__c">
+          <summary>Check this field to include the Newslines service on this opportunity.</summary>
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Credit_Term__c" title="Credit_Term__c">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Non - Applicable:Non - Applicable|25 Days:25 Days|30 Days:30 Days|40 Days:40 Days|45 Days:45 Days|60 Days:60 Days</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Exclude_VAT_Tax__c" title="Exclude_VAT_Tax__c">
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Notes__c" title="Notes__c">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Contributor__c" title="Contributor__c">
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Licence_Solution__c" title="Licence_Solution__c">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Corporate:Corporate|Syndication Adhocs:Syndication Adhocs|Education:Education|Syndication:Syndication|Channel Management:Channel Management|Syndication Contracts:Syndication Contracts|Cengage:Cengage|GMM:GMM|Team:Team|Group:Group|Enterprise:Enterprise|Online sign-up:Online sign-up|None:None|Digital Licence:Digital Licence|Print Digital Licence:Print Digital Licence|Print Only Licence:Print Only Licence</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Licence_Term_Fixed__c" title="Licence_Term_Fixed__c">
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Payment_Terms__c" title="Payment_Terms__c">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Annually:Annually|Monthly:Monthly|Quarterly:Quarterly|Half Yearly:Half Yearly|Ad hoc Payment:Ad hoc Payment</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Payment_Types__c" title="Payment_Types__c">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Credit card:Credit card|FOC:FOC|Invoice:Invoice|Pre-payment:Pre-payment|Self-bill:Self-bill</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="SLA__c" title="SLA__c">
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Term_1_One_Time_Use__c" title="Term_1_One_Time_Use__c">
+          <summary>The agreement permits the one-time use of the Client of the Permitted Content in accordance with its terms</summary>
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Term_2_One_Time_Use_Within_Timeframe__c" title="Term_2_One_Time_Use_Within_Timeframe__c">
+          <summary>The agreement permits the one-time use of the Client of the Permitted Content in accordance with its terms, provided that the Client uses the permitted content within X days of the Start Date</summary>
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Term_3_Contract_Term__c" title="Term_3_Contract_Term__c">
+          <summary>The Term Commences on the "Start Date" and Shall Continue Until an End Date to be Specified</summary>
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Term_4_Perpetuity__c" title="Term_4_Perpetuity__c">
+          <summary>The Term Commences on the "Start Date" and Shall Continue Until Perpetuity.</summary>
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+      </generatedParameters>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" title="Create Object: OpportunityLineItem=&gt;OpportunityLineItemId1">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">OpportunityLineItem</value>
+        </argument>
+        <argument id="resultIdName">
+          <value class="value" valueClass="string">OpportunityLineItemId1</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">FT</value>
+        </argument>
+        <argument id="OpportunityId">
+          <value class="variable">
+            <path element="OpportunityId"/>
+          </value>
+        </argument>
+        <argument id="PricebookEntryId">
+          <value class="value" valueClass="string">01uD000000MJplCIAT</value>
+        </argument>
+        <argument id="Quantity">
+          <value class="value" valueClass="decimal">1.0</value>
+        </argument>
+        <argument id="Discount">
+          <value class="value" valueClass="string">0.0</value>
+        </argument>
+        <argument id="UnitPrice">
+          <value class="value" valueClass="decimal">100.0</value>
+        </argument>
+        <argument id="Enterprise_Wide__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="TotalPriceEditable__c">
+          <value class="value" valueClass="decimal">100.0</value>
+        </argument>
+        <argument id="Calculator_Price__c">
+          <value class="value" valueClass="decimal">100.0</value>
+        </argument>
+        <argument id="Content_Set__c">
+          <value class="value" valueClass="string">FT Newspaper</value>
+        </argument>
+        <argument id="Education__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="Embargo__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="Fulfilment_Method_Syndication_Contract__c">
+          <value class="value" valueClass="string">FT.com</value>
+        </argument>
+        <argument id="Maximum_Permitted_Online_Usage_Period__c">
+          <value class="value" valueClass="string">Week</value>
+        </argument>
+        <argument id="Maximum_Permitted_Online_Usage__c">
+          <value class="value" valueClass="decimal">10.0</value>
+        </argument>
+        <argument id="Maximum_Permitted_Print_Usage_Period__c">
+          <value class="value" valueClass="string">Week</value>
+        </argument>
+        <argument id="Maximum_Permitted_Print_Usage__c">
+          <value class="value" valueClass="decimal">10.0</value>
+        </argument>
+        <argument id="OpportunitySyndCon__c">
+          <value class="variable">
+            <path element="OpportunityId"/>
+          </value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">FT</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">OpportunityLineItem</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" name="OpportunityId" title="OpportunityId">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="PricebookEntryId" title="PricebookEntryId">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Quantity" title="Quantity">
+          <type>
+            <numericType>
+              <constraints>
+                <valueConstraint name="length">12</valueConstraint>
+                <valueConstraint name="decimalPlaces">2</valueConstraint>
+              </constraints>
+            </numericType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Discount" title="Discount">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="UnitPrice" title="UnitPrice">
+          <type>
+            <numericType>
+              <constraints>
+                <valueConstraint name="length">18</valueConstraint>
+                <valueConstraint name="decimalPlaces">2</valueConstraint>
+              </constraints>
+            </numericType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Enterprise_Wide__c" title="Enterprise_Wide__c">
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="TotalPriceEditable__c" title="TotalPriceEditable__c">
+          <type>
+            <numericType>
+              <constraints>
+                <valueConstraint name="length">18</valueConstraint>
+                <valueConstraint name="decimalPlaces">2</valueConstraint>
+              </constraints>
+            </numericType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Calculator_Price__c" title="Calculator_Price__c">
+          <type>
+            <numericType>
+              <constraints>
+                <valueConstraint name="length">18</valueConstraint>
+                <valueConstraint name="decimalPlaces">2</valueConstraint>
+              </constraints>
+            </numericType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Content_Set__c" title="Content_Set__c">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">FT Newspaper:FT Newspaper|FT.com:FT.com|Weekend:Weekend|Life &amp; Arts:Life &amp; Arts|House &amp; Home:House &amp; Home|Money:Money|Weekend magazine:Weekend magazine|FTfm:FTfm|FT Connected Business:FT Connected Business|Columnists:Columnists|Special reports:Special reports|Misc:Misc|Spanish content:Spanish content</valueConstraint>
+                <valueConstraint name="multiSelection">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Education__c" title="Education__c">
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Embargo__c" title="Embargo__c">
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Fulfilment_Method_Syndication_Contract__c" title="Fulfilment_Method_Syndication_Contract__c">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Syndication platform:Syndication platform|XML feed:XML feed|FT.com:FT.com|Newscred:Newscred|Manual:Manual|API:API|FTP:FTP</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Maximum_Permitted_Online_Usage_Period__c" title="Maximum_Permitted_Online_Usage_Period__c">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Day:Day|Week:Week|Month:Month|Year:Year</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Maximum_Permitted_Online_Usage__c" title="Maximum_Permitted_Online_Usage__c">
+          <type>
+            <numericType>
+              <constraints>
+                <valueConstraint name="length">18</valueConstraint>
+                <valueConstraint name="decimalPlaces">0</valueConstraint>
+              </constraints>
+            </numericType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Maximum_Permitted_Print_Usage_Period__c" title="Maximum_Permitted_Print_Usage_Period__c">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Day:Day|Week:Week|Month:Month|Year:Year</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Maximum_Permitted_Print_Usage__c" title="Maximum_Permitted_Print_Usage__c">
+          <type>
+            <numericType>
+              <constraints>
+                <valueConstraint name="length">18</valueConstraint>
+                <valueConstraint name="decimalPlaces">0</valueConstraint>
+              </constraints>
+            </numericType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="OpportunitySyndCon__c" title="OpportunitySyndCon__c">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+      </generatedParameters>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" title="Create Object: OpportunityLineItem=&gt;OpportunityLineItemId2">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">OpportunityLineItem</value>
+        </argument>
+        <argument id="resultIdName">
+          <value class="value" valueClass="string">OpportunityLineItemId2</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">FT</value>
+        </argument>
+        <argument id="OpportunityId">
+          <value class="variable">
+            <path element="OpportunityId"/>
+          </value>
+        </argument>
+        <argument id="PricebookEntryId">
+          <value class="value" valueClass="string">01uD000000MJplrIAD</value>
+        </argument>
+        <argument id="Quantity">
+          <value class="value" valueClass="decimal">1.0</value>
+        </argument>
+        <argument id="Discount">
+          <value class="value" valueClass="string">10.0</value>
+        </argument>
+        <argument id="UnitPrice">
+          <value class="value" valueClass="decimal">100.0</value>
+        </argument>
+        <argument id="Enterprise_Wide__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="TotalPriceEditable__c">
+          <value class="value" valueClass="decimal">90.0</value>
+        </argument>
+        <argument id="Calculator_Price__c">
+          <value class="value" valueClass="decimal">100.0</value>
+        </argument>
+        <argument id="Content_Set__c">
+          <value class="value" valueClass="string">FT Newspaper</value>
+        </argument>
+        <argument id="Education__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="Embargo__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="Fulfilment_Method_Syndication_Contract__c">
+          <value class="value" valueClass="string">Manual</value>
+        </argument>
+        <argument id="Maximum_Permitted_Online_Usage_Period__c">
+          <value class="value" valueClass="string">Year</value>
+        </argument>
+        <argument id="Maximum_Permitted_Online_Usage__c">
+          <value class="value" valueClass="decimal">10.0</value>
+        </argument>
+        <argument id="OpportunitySyndCon__c">
+          <value class="variable">
+            <path element="OpportunityId"/>
+          </value>
+        </argument>
+        <argument id="Video_Usage__c">
+          <value class="value" valueClass="string">External Corporate Use</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">FT</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">OpportunityLineItem</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" name="OpportunityId" title="OpportunityId">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="PricebookEntryId" title="PricebookEntryId">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Quantity" title="Quantity">
+          <type>
+            <numericType>
+              <constraints>
+                <valueConstraint name="length">12</valueConstraint>
+                <valueConstraint name="decimalPlaces">2</valueConstraint>
+              </constraints>
+            </numericType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Discount" title="Discount">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="UnitPrice" title="UnitPrice">
+          <type>
+            <numericType>
+              <constraints>
+                <valueConstraint name="length">18</valueConstraint>
+                <valueConstraint name="decimalPlaces">2</valueConstraint>
+              </constraints>
+            </numericType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Enterprise_Wide__c" title="Enterprise_Wide__c">
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="TotalPriceEditable__c" title="TotalPriceEditable__c">
+          <type>
+            <numericType>
+              <constraints>
+                <valueConstraint name="length">18</valueConstraint>
+                <valueConstraint name="decimalPlaces">2</valueConstraint>
+              </constraints>
+            </numericType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Calculator_Price__c" title="Calculator_Price__c">
+          <type>
+            <numericType>
+              <constraints>
+                <valueConstraint name="length">18</valueConstraint>
+                <valueConstraint name="decimalPlaces">2</valueConstraint>
+              </constraints>
+            </numericType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Content_Set__c" title="Content_Set__c">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">FT Newspaper:FT Newspaper|FT.com:FT.com|Weekend:Weekend|Life &amp; Arts:Life &amp; Arts|House &amp; Home:House &amp; Home|Money:Money|Weekend magazine:Weekend magazine|FTfm:FTfm|FT Connected Business:FT Connected Business|Columnists:Columnists|Special reports:Special reports|Misc:Misc|Spanish content:Spanish content</valueConstraint>
+                <valueConstraint name="multiSelection">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Education__c" title="Education__c">
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Embargo__c" title="Embargo__c">
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Fulfilment_Method_Syndication_Contract__c" title="Fulfilment_Method_Syndication_Contract__c">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Syndication platform:Syndication platform|XML feed:XML feed|FT.com:FT.com|Newscred:Newscred|Manual:Manual|API:API|FTP:FTP</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Maximum_Permitted_Online_Usage_Period__c" title="Maximum_Permitted_Online_Usage_Period__c">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Day:Day|Week:Week|Month:Month|Year:Year</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Maximum_Permitted_Online_Usage__c" title="Maximum_Permitted_Online_Usage__c">
+          <type>
+            <numericType>
+              <constraints>
+                <valueConstraint name="length">18</valueConstraint>
+                <valueConstraint name="decimalPlaces">0</valueConstraint>
+              </constraints>
+            </numericType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="OpportunitySyndCon__c" title="OpportunitySyndCon__c">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Video_Usage__c" title="Video_Usage__c">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Media website &amp; Apps:Media website &amp; Apps|External Corporate Use:External Corporate Use</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+      </generatedParameters>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" title="Create Object: OpportunityLineItem=&gt;OpportunityLineItemId3">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">OpportunityLineItem</value>
+        </argument>
+        <argument id="resultIdName">
+          <value class="value" valueClass="string">OpportunityLineItemId3</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">FT</value>
+        </argument>
+        <argument id="OpportunityId">
+          <value class="variable">
+            <path element="OpportunityId"/>
+          </value>
+        </argument>
+        <argument id="PricebookEntryId">
+          <value class="value" valueClass="string">01uD000000MJpl3IAD</value>
+        </argument>
+        <argument id="Quantity">
+          <value class="value" valueClass="decimal">1.0</value>
+        </argument>
+        <argument id="Discount">
+          <value class="value" valueClass="string">100.0</value>
+        </argument>
+        <argument id="UnitPrice">
+          <value class="value" valueClass="decimal">0.0</value>
+        </argument>
+        <argument id="Enterprise_Wide__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="TotalPriceEditable__c">
+          <value class="value" valueClass="decimal">0.0</value>
+        </argument>
+        <argument id="Calculator_Price__c">
+          <value class="value" valueClass="decimal">1000.0</value>
+        </argument>
+        <argument id="Education__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="Embargo__c">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="Fulfilment_Method_Syndication_Contract__c">
+          <value class="value" valueClass="string">FT.com</value>
+        </argument>
+        <argument id="Maximum_Permitted_Online_Usage_Period__c">
+          <value class="value" valueClass="string">Month</value>
+        </argument>
+        <argument id="Maximum_Permitted_Online_Usage__c">
+          <value class="value" valueClass="decimal">10.0</value>
+        </argument>
+        <argument id="OpportunitySyndCon__c">
+          <value class="variable">
+            <path element="OpportunityId"/>
+          </value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">FT</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">OpportunityLineItem</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" name="OpportunityId" title="OpportunityId">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="PricebookEntryId" title="PricebookEntryId">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Quantity" title="Quantity">
+          <type>
+            <numericType>
+              <constraints>
+                <valueConstraint name="length">12</valueConstraint>
+                <valueConstraint name="decimalPlaces">2</valueConstraint>
+              </constraints>
+            </numericType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Discount" title="Discount">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="UnitPrice" title="UnitPrice">
+          <type>
+            <numericType>
+              <constraints>
+                <valueConstraint name="length">18</valueConstraint>
+                <valueConstraint name="decimalPlaces">2</valueConstraint>
+              </constraints>
+            </numericType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Enterprise_Wide__c" title="Enterprise_Wide__c">
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="TotalPriceEditable__c" title="TotalPriceEditable__c">
+          <type>
+            <numericType>
+              <constraints>
+                <valueConstraint name="length">18</valueConstraint>
+                <valueConstraint name="decimalPlaces">2</valueConstraint>
+              </constraints>
+            </numericType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Calculator_Price__c" title="Calculator_Price__c">
+          <type>
+            <numericType>
+              <constraints>
+                <valueConstraint name="length">18</valueConstraint>
+                <valueConstraint name="decimalPlaces">2</valueConstraint>
+              </constraints>
+            </numericType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Education__c" title="Education__c">
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Embargo__c" title="Embargo__c">
+          <type>
+            <booleanType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Fulfilment_Method_Syndication_Contract__c" title="Fulfilment_Method_Syndication_Contract__c">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Syndication platform:Syndication platform|XML feed:XML feed|FT.com:FT.com|Newscred:Newscred|Manual:Manual|API:API|FTP:FTP</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Maximum_Permitted_Online_Usage_Period__c" title="Maximum_Permitted_Online_Usage_Period__c">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Day:Day|Week:Week|Month:Month|Year:Year</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Maximum_Permitted_Online_Usage__c" title="Maximum_Permitted_Online_Usage__c">
+          <type>
+            <numericType>
+              <constraints>
+                <valueConstraint name="length">18</valueConstraint>
+                <valueConstraint name="decimalPlaces">0</valueConstraint>
+              </constraints>
+            </numericType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="OpportunitySyndCon__c" title="OpportunitySyndCon__c">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+      </generatedParameters>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexUpdateObject" name="ApexUpdateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.UpdateCustomObjectTestStepCommand" title="Update Object: Opportunity = {OpportunityId}">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">Opportunity</value>
+        </argument>
+        <argument id="objectId">
+          <value class="variable">
+            <path element="OpportunityId"/>
+          </value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">OpportunityUpdated</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">FT</value>
+        </argument>
+        <argument id="Total_number_of_videos__c">
+          <value class="value" valueClass="decimal">5.0</value>
+        </argument>
+        <argument id="Total_number_of_articles__c">
+          <value class="value" valueClass="decimal">10.0</value>
+        </argument>
+        <argument id="Sector__c">
+          <value class="value" valueClass="string">Media</value>
+        </argument>
+        <argument id="Publication_Country__c">
+          <value class="value" valueClass="string">UNITED KINGDOM</value>
+        </argument>
+        <argument id="Platform__c">
+          <value class="value" valueClass="string">Yes</value>
+        </argument>
+        <argument id="Number_of_channels__c">
+          <value class="value" valueClass="string">One - Print &amp; Online w/paywall or Foreign Lang</value>
+        </argument>
+        <argument id="Contributor_Article_Rate__c">
+          <value class="value" valueClass="decimal">3.0</value>
+        </argument>
+        <argument id="Client_Website__c">
+          <value class="value" valueClass="string">http://www.testme.com</value>
+        </argument>
+        <argument id="ClientPublication__c">
+          <value class="value" valueClass="string">Client Publication Text.</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="No_of_Countries__c">
+          <value class="value" valueClass="string">4+</value>
+        </argument>
+        <argument id="Exclusivity__c">
+          <value class="value" valueClass="string">Total Exclusivity</value>
+        </argument>
+        <argument id="ExclusiveRights__c">
+          <value class="value" valueClass="string">Total Exclusivity</value>
+        </argument>
+        <argument id="StageName">
+          <value class="value" valueClass="string">Signed Contract Received</value>
+        </argument>
+      </arguments>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.UpdateCustomObjectTestStepCommand.ConnectionName">FT</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.UpdateCustomObjectTestStepCommand.CustomObjectName">Opportunity</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" name="Total_number_of_videos__c" title="Total_number_of_videos__c">
+          <type>
+            <numericType>
+              <constraints>
+                <valueConstraint name="length">18</valueConstraint>
+                <valueConstraint name="decimalPlaces">0</valueConstraint>
+              </constraints>
+            </numericType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Total_number_of_articles__c" title="Total_number_of_articles__c">
+          <type>
+            <numericType>
+              <constraints>
+                <valueConstraint name="length">18</valueConstraint>
+                <valueConstraint name="decimalPlaces">0</valueConstraint>
+              </constraints>
+            </numericType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Sector__c" title="Sector__c">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Media:Media|Corporate:Corporate</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Publication_Country__c" title="Publication_Country__c">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">AALAND ISLANDS:AALAND ISLANDS|AFGHANISTAN:AFGHANISTAN|ALBANIA:ALBANIA|ALGERIA:ALGERIA|AMERICAN SAMOA:AMERICAN SAMOA|ANDORRA:ANDORRA|ANGOLA:ANGOLA|ANGUILLA:ANGUILLA|ANTARCTICA:ANTARCTICA|ANTIGUA AND BARBUDA:ANTIGUA AND BARBUDA|ARGENTINA:ARGENTINA|ARMENIA:ARMENIA|ARUBA:ARUBA|AUSTRALIA:AUSTRALIA|AUSTRIA:AUSTRIA|AZERBAIJAN:AZERBAIJAN|BAHAMAS:BAHAMAS|BAHRAIN:BAHRAIN|BANGLADESH:BANGLADESH|BARBADOS:BARBADOS|BELARUS:BELARUS|BELGIUM:BELGIUM|BELIZE:BELIZE|BENIN:BENIN|BERMUDA:BERMUDA|BHUTAN:BHUTAN|BOLIVIA:BOLIVIA|BOSNIA AND HERZEGOWINA:BOSNIA AND HERZEGOWINA|BOTSWANA:BOTSWANA|BOUVET ISLAND:BOUVET ISLAND|BRAZIL:BRAZIL|BRITISH INDIAN OCEAN TERRITORY:BRITISH INDIAN OCEAN TERRITORY|BRUNEI DARUSSALAM:BRUNEI DARUSSALAM|BULGARIA:BULGARIA|BURKINA FASO:BURKINA FASO|BURUNDI:BURUNDI|CAMBODIA:CAMBODIA|CAMEROON:CAMEROON|CANADA:CANADA|CAPE VERDE:CAPE VERDE|CAYMAN ISLANDS:CAYMAN ISLANDS|CENTRAL AFRICAN REPUBLIC:CENTRAL AFRICAN REPUBLIC|CHAD:CHAD|CHILE:CHILE|CHINA:CHINA|CHRISTMAS ISLAND:CHRISTMAS ISLAND|COCOS (KEELING) ISLANDS:COCOS (KEELING) ISLANDS|COLOMBIA:COLOMBIA|COMOROS:COMOROS|CONGO, Democratic Republic of (was Zaire):CONGO, Democratic Republic of (was Zaire)|CONGO, Republic of:CONGO, Republic of|COOK ISLANDS:COOK ISLANDS|COSTA RICA:COSTA RICA|COTE D'IVOIRE:COTE D'IVOIRE|CROATIA (local name: Hrvatska):CROATIA (local name: Hrvatska)|CUBA:CUBA|CYPRUS:CYPRUS|CZECH REPUBLIC:CZECH REPUBLIC|DENMARK:DENMARK|DJIBOUTI:DJIBOUTI|DOMINICA:DOMINICA|DOMINICAN REPUBLIC:DOMINICAN REPUBLIC|ECUADOR:ECUADOR|EGYPT:EGYPT|EL SALVADOR:EL SALVADOR|EQUATORIAL GUINEA:EQUATORIAL GUINEA|ERITREA:ERITREA|ESTONIA:ESTONIA|ETHIOPIA:ETHIOPIA|FALKLAND ISLANDS (MALVINAS):FALKLAND ISLANDS (MALVINAS)|FAROE ISLANDS:FAROE ISLANDS|FIJI:FIJI|FINLAND:FINLAND|FRANCE:FRANCE|FRENCH GUIANA:FRENCH GUIANA|FRENCH POLYNESIA:FRENCH POLYNESIA|FRENCH SOUTHERN TERRITORIES:FRENCH SOUTHERN TERRITORIES|GABON:GABON|GAMBIA:GAMBIA|GEORGIA:GEORGIA|GERMANY:GERMANY|GHANA:GHANA|GIBRALTAR:GIBRALTAR|GREECE:GREECE|GREENLAND:GREENLAND|GRENADA:GRENADA|GUADELOUPE:GUADELOUPE|GUAM:GUAM|GUATEMALA:GUATEMALA|GUINEA:GUINEA|GUINEA-BISSAU:GUINEA-BISSAU|GUYANA:GUYANA|HAITI:HAITI|HEARD AND MC DONALD ISLANDS:HEARD AND MC DONALD ISLANDS|HONDURAS:HONDURAS|HONG KONG:HONG KONG|HUNGARY:HUNGARY|ICELAND:ICELAND|INDIA:INDIA|INDONESIA:INDONESIA|IRAN (ISLAMIC REPUBLIC OF):IRAN (ISLAMIC REPUBLIC OF)|IRAQ:IRAQ|IRELAND:IRELAND|ISRAEL:ISRAEL|ITALY:ITALY|JAMAICA:JAMAICA|JAPAN:JAPAN|JORDAN:JORDAN|KAZAKHSTAN:KAZAKHSTAN|KENYA:KENYA|KIRIBATI:KIRIBATI|KUWAIT:KUWAIT|KYRGYZSTAN:KYRGYZSTAN|LAO PEOPLE'S DEMOCRATIC REPUBLIC:LAO PEOPLE'S DEMOCRATIC REPUBLIC|LATVIA:LATVIA|LEBANON:LEBANON|LESOTHO:LESOTHO|LIBERIA:LIBERIA|LIBYAN ARAB JAMAHIRIYA:LIBYAN ARAB JAMAHIRIYA|LIECHTENSTEIN:LIECHTENSTEIN|LITHUANIA:LITHUANIA|LUXEMBOURG:LUXEMBOURG|MACAU:MACAU|MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF:MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF|MADAGASCAR:MADAGASCAR|MALAWI:MALAWI|MALAYSIA:MALAYSIA|MALDIVES:MALDIVES|MALI:MALI|MALTA:MALTA|MARSHALL ISLANDS:MARSHALL ISLANDS|MARTINIQUE:MARTINIQUE|MAURITANIA:MAURITANIA|MAURITIUS:MAURITIUS|MAYOTTE:MAYOTTE|MEXICO:MEXICO|MICRONESIA, FEDERATED STATES OF:MICRONESIA, FEDERATED STATES OF|MOLDOVA, REPUBLIC OF:MOLDOVA, REPUBLIC OF|MONACO:MONACO|MONGOLIA:MONGOLIA|MONTSERRAT:MONTSERRAT|MOROCCO:MOROCCO|MOZAMBIQUE:MOZAMBIQUE|MYANMAR:MYANMAR|NAMIBIA:NAMIBIA|NAURU:NAURU|NEPAL:NEPAL|NETHERLANDS:NETHERLANDS|NETHERLANDS ANTILLES:NETHERLANDS ANTILLES|NEW CALEDONIA:NEW CALEDONIA|NEW ZEALAND:NEW ZEALAND|NICARAGUA:NICARAGUA|NIGER:NIGER|NIGERIA:NIGERIA|NIUE:NIUE|NORFOLK ISLAND:NORFOLK ISLAND|KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF:KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF|NORTHERN MARIANA ISLANDS:NORTHERN MARIANA ISLANDS|NORWAY:NORWAY|OMAN:OMAN|PAKISTAN:PAKISTAN|PALAU:PALAU|PALESTINIAN TERRITORY, Occupied:PALESTINIAN TERRITORY, Occupied|PANAMA:PANAMA|PAPUA NEW GUINEA:PAPUA NEW GUINEA|PARAGUAY:PARAGUAY|PERU:PERU|PHILIPPINES:PHILIPPINES|PITCAIRN:PITCAIRN|POLAND:POLAND|PORTUGAL:PORTUGAL|PUERTO RICO:PUERTO RICO|QATAR:QATAR|REUNION:REUNION|ROMANIA:ROMANIA|RUSSIAN FEDERATION:RUSSIAN FEDERATION|RWANDA:RWANDA|SAINT HELENA:SAINT HELENA|SAINT KITTS AND NEVIS:SAINT KITTS AND NEVIS|SAINT LUCIA:SAINT LUCIA|SAINT PIERRE AND MIQUELON:SAINT PIERRE AND MIQUELON|SAINT VINCENT AND THE GRENADINES:SAINT VINCENT AND THE GRENADINES|SAMOA:SAMOA|SAN MARINO:SAN MARINO|SAO TOME AND PRINCIPE:SAO TOME AND PRINCIPE|SAUDI ARABIA:SAUDI ARABIA|SENEGAL:SENEGAL|SERBIA AND MONTENEGRO:SERBIA AND MONTENEGRO|SEYCHELLES:SEYCHELLES|SIERRA LEONE:SIERRA LEONE|SINGAPORE:SINGAPORE|SLOVAKIA:SLOVAKIA|SLOVENIA:SLOVENIA|SOLOMON ISLANDS:SOLOMON ISLANDS|SOMALIA:SOMALIA|SOUTH AFRICA:SOUTH AFRICA|SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS:SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS|KOREA, REPUBLIC OF:KOREA, REPUBLIC OF|SPAIN:SPAIN|SRI LANKA:SRI LANKA|SUDAN:SUDAN|SURINAME:SURINAME|SVALBARD AND JAN MAYEN ISLANDS:SVALBARD AND JAN MAYEN ISLANDS|SWAZILAND:SWAZILAND|SWEDEN:SWEDEN|SWITZERLAND:SWITZERLAND|SYRIAN ARAB REPUBLIC:SYRIAN ARAB REPUBLIC|TAIWAN:TAIWAN|TAJIKISTAN:TAJIKISTAN|TANZANIA, UNITED REPUBLIC OF:TANZANIA, UNITED REPUBLIC OF|THAILAND:THAILAND|TIMOR-LESTE:TIMOR-LESTE|TOGO:TOGO|TOKELAU:TOKELAU|TONGA:TONGA|TRINIDAD AND TOBAGO:TRINIDAD AND TOBAGO|TUNISIA:TUNISIA|TURKEY:TURKEY|TURKMENISTAN:TURKMENISTAN|TURKS AND CAICOS ISLANDS:TURKS AND CAICOS ISLANDS|TUVALU:TUVALU|UGANDA:UGANDA|UNITED KINGDOM:UNITED KINGDOM|UKRAINE:UKRAINE|UNITED ARAB EMIRATES:UNITED ARAB EMIRATES|URUGUAY:URUGUAY|UNITED STATES:UNITED STATES|UNITED STATES MINOR OUTLYING ISLANDS:UNITED STATES MINOR OUTLYING ISLANDS|UZBEKISTAN:UZBEKISTAN|VANUATU:VANUATU|VATICAN CITY STATE (HOLY SEE):VATICAN CITY STATE (HOLY SEE)|VENEZUELA:VENEZUELA|VIET NAM:VIET NAM|VIRGIN ISLANDS (BRITISH):VIRGIN ISLANDS (BRITISH)|VIRGIN ISLANDS (U.S.):VIRGIN ISLANDS (U.S.)|WALLIS AND FUTUNA ISLANDS:WALLIS AND FUTUNA ISLANDS|WESTERN SAHARA:WESTERN SAHARA|YEMEN:YEMEN|ZAMBIA:ZAMBIA|ZIMBABWE:ZIMBABWE</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Platform__c" title="Platform__c">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Yes:Yes|No:No</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Number_of_channels__c" title="Number_of_channels__c">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">One - Print &amp; Online w/paywall or Foreign Lang:One - Print &amp; Online w/paywall or Foreign Lang|One - Print or Online Free View English:One - Print or Online Free View English|Two - Print &amp; Online w/paywall or Foreign Lang:Two - Print &amp; Online w/paywall or Foreign Lang|Two - Print &amp; Online Free View English:Two - Print &amp; Online Free View English|Three or more - Apps w/paywall or Foreign Lang:Three or more - Apps w/paywall or Foreign Lang|Three or more - Apps Free View English:Three or more - Apps Free View English</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="No_of_Countries__c" title="No_of_Countries__c">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">1:1|2:2|3:3|4+:4+</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Exclusivity__c" title="Exclusivity__c">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Total Exclusivity:Total Exclusivity|Sector Exclusivity:Sector Exclusivity|Print or Online Exclusivity:Print or Online Exclusivity</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Contributor_Article_Rate__c" title="Contributor_Article_Rate__c">
+          <type>
+            <numericType>
+              <constraints>
+                <valueConstraint name="length">18</valueConstraint>
+                <valueConstraint name="decimalPlaces">2</valueConstraint>
+              </constraints>
+            </numericType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Client_Website__c" title="Client_Website__c">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="ClientPublication__c" title="ClientPublication__c">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="ExclusiveRights__c" title="ExclusiveRights__c">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Total Exclusivity:Total Exclusivity|Sector Exclusivity:Sector Exclusivity|Print or Online Exclusivity:Print or Online Exclusivity</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="StageName" title="StageName">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Prospecting/Needs/Qualification:Prospecting/Needs/Qualification|Proposal/Price Quote:Proposal/Price Quote|Trial Period:Trial Period|Negotiation Post Trial:Negotiation Post Trial|3 Month Trial:3 Month Trial|Basic Subcription:Basic Subcription|Premium Subscription:Premium Subscription|China Funds Trial:China Funds Trial|New Opportunity:New Opportunity|Quote Sent:Quote Sent|Full Proposal Sent:Full Proposal Sent|Contract Sent:Contract Sent|Signed Contract Received:Signed Contract Received|Closed Lost:Closed Lost|Renewal:Renewal</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+      </generatedParameters>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" title="SOQL Query: select Contract__c from Opportunity where id = '{OpportunityId}'=&gt;OpportunityRows">
+      <arguments>
+        <argument id="soqlQuery">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">select Contract__c from Opportunity where id = '</value>
+              <variable>
+                <path element="OpportunityId"/>
+              </variable>
+              <value valueClass="string">'</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">FT</value>
+        </argument>
+        <argument id="resultListName">
+          <value class="value" valueClass="string">OpportunityRows</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" title="Read Object: Contract = {OpportunityRows.Contract__c}">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">Contract</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">ContractRead</value>
+        </argument>
+        <argument id="objectId">
+          <value class="variable">
+            <path element="OpportunityRows"/>
+            <path element="Contract__c"/>
+          </value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">FT</value>
+        </argument>
+        <argument id="Total_number_of_videos__c">
+          <value class="value" valueClass="decimal">5.0</value>
+        </argument>
+        <argument id="Total_number_of_articles__c">
+          <value class="value" valueClass="decimal">10.0</value>
+        </argument>
+        <argument id="Sector__c">
+          <value class="value" valueClass="string">Media</value>
+        </argument>
+        <argument id="Publication_Country__c">
+          <value class="value" valueClass="string">UNITED KINGDOM</value>
+        </argument>
+        <argument id="Platform__c">
+          <value class="value" valueClass="string">Yes</value>
+        </argument>
+        <argument id="Number_of_channels__c">
+          <value class="value" valueClass="string">One - Print &amp; Online w/paywall or Foreign Lang</value>
+        </argument>
+        <argument id="Client_Publications__c">
+          <value class="value" valueClass="string">Client Publication Text.</value>
+        </argument>
+        <argument id="Client_Website__c">
+          <value class="value" valueClass="string">http://www.testme.com</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+      <resultAssertions>
+        <resultAssertion resultName="Total_number_of_videos__c" title="Check Total_number_of_videos__c">
+          <expected class="value" valueClass="decimal">5.0</expected>
+        </resultAssertion>
+        <resultAssertion resultName="Total_number_of_articles__c" title="Check Total_number_of_articles__c">
+          <expected class="value" valueClass="decimal">10.0</expected>
+        </resultAssertion>
+        <resultAssertion resultName="Sector__c" title="Check Sector__c">
+          <expected class="value" valueClass="string">Media</expected>
+        </resultAssertion>
+        <resultAssertion resultName="Publication_Country__c" title="Check Publication_Country__c">
+          <expected class="value" valueClass="string">UNITED KINGDOM</expected>
+        </resultAssertion>
+        <resultAssertion resultName="Platform__c" title="Check Platform__c">
+          <expected class="value" valueClass="string">Yes</expected>
+        </resultAssertion>
+        <resultAssertion resultName="No_of_Countries__c" title="Check No_of_Countries__c">
+          <expected class="value" valueClass="string">4+</expected>
+        </resultAssertion>
+        <resultAssertion resultName="Number_of_channels__c" title="Check Number_of_channels__c">
+          <expected class="value" valueClass="string">One - Print &amp; Online w/paywall or Foreign Lang</expected>
+        </resultAssertion>
+        <resultAssertion resultName="Exclusivity__c" title="Check Exclusivity__c">
+          <expected class="value" valueClass="string">Total Exclusivity</expected>
+        </resultAssertion>
+        <resultAssertion resultName="Client_Publications__c" title="Check Client_Publications__c">
+          <expected class="value" valueClass="string">Client Publication Text.</expected>
+        </resultAssertion>
+        <resultAssertion resultName="Client_Website__c" title="Check Client_Website__c">
+          <expected class="value" valueClass="string">http://www.testme.com</expected>
+        </resultAssertion>
+      </resultAssertions>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">FT</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.CustomObjectName">Contract</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" name="Total_number_of_videos__c" title="Total number of videos">
+          <type>
+            <numericType>
+              <constraints>
+                <valueConstraint name="length">18</valueConstraint>
+                <valueConstraint name="decimalPlaces">0</valueConstraint>
+              </constraints>
+            </numericType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Total_number_of_articles__c" title="Total number of articles">
+          <type>
+            <numericType>
+              <constraints>
+                <valueConstraint name="length">18</valueConstraint>
+                <valueConstraint name="decimalPlaces">0</valueConstraint>
+              </constraints>
+            </numericType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Sector__c" title="Sector">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Media:Media|Corporate:Corporate</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Publication_Country__c" title="Publication Country">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">AALAND ISLANDS:AALAND ISLANDS|AFGHANISTAN:AFGHANISTAN|ALBANIA:ALBANIA|ALGERIA:ALGERIA|AMERICAN SAMOA:AMERICAN SAMOA|ANDORRA:ANDORRA|ANGOLA:ANGOLA|ANGUILLA:ANGUILLA|ANTARCTICA:ANTARCTICA|ANTIGUA AND BARBUDA:ANTIGUA AND BARBUDA|ARGENTINA:ARGENTINA|ARMENIA:ARMENIA|ARUBA:ARUBA|AUSTRALIA:AUSTRALIA|AUSTRIA:AUSTRIA|AZERBAIJAN:AZERBAIJAN|BAHAMAS:BAHAMAS|BAHRAIN:BAHRAIN|BANGLADESH:BANGLADESH|BARBADOS:BARBADOS|BELARUS:BELARUS|BELGIUM:BELGIUM|BELIZE:BELIZE|BENIN:BENIN|BERMUDA:BERMUDA|BHUTAN:BHUTAN|BOLIVIA:BOLIVIA|BOSNIA AND HERZEGOWINA:BOSNIA AND HERZEGOWINA|BOTSWANA:BOTSWANA|BOUVET ISLAND:BOUVET ISLAND|BRAZIL:BRAZIL|BRITISH INDIAN OCEAN TERRITORY:BRITISH INDIAN OCEAN TERRITORY|BRUNEI DARUSSALAM:BRUNEI DARUSSALAM|BULGARIA:BULGARIA|BURKINA FASO:BURKINA FASO|BURUNDI:BURUNDI|CAMBODIA:CAMBODIA|CAMEROON:CAMEROON|CANADA:CANADA|CAPE VERDE:CAPE VERDE|CAYMAN ISLANDS:CAYMAN ISLANDS|CENTRAL AFRICAN REPUBLIC:CENTRAL AFRICAN REPUBLIC|CHAD:CHAD|CHILE:CHILE|CHINA:CHINA|CHRISTMAS ISLAND:CHRISTMAS ISLAND|COCOS (KEELING) ISLANDS:COCOS (KEELING) ISLANDS|COLOMBIA:COLOMBIA|COMOROS:COMOROS|CONGO, Democratic Republic of (was Zaire):CONGO, Democratic Republic of (was Zaire)|CONGO, Republic of:CONGO, Republic of|COOK ISLANDS:COOK ISLANDS|COSTA RICA:COSTA RICA|COTE D'IVOIRE:COTE D'IVOIRE|CROATIA (local name: Hrvatska):CROATIA (local name: Hrvatska)|CUBA:CUBA|CYPRUS:CYPRUS|CZECH REPUBLIC:CZECH REPUBLIC|DENMARK:DENMARK|DJIBOUTI:DJIBOUTI|DOMINICA:DOMINICA|DOMINICAN REPUBLIC:DOMINICAN REPUBLIC|ECUADOR:ECUADOR|EGYPT:EGYPT|EL SALVADOR:EL SALVADOR|EQUATORIAL GUINEA:EQUATORIAL GUINEA|ERITREA:ERITREA|ESTONIA:ESTONIA|ETHIOPIA:ETHIOPIA|FALKLAND ISLANDS (MALVINAS):FALKLAND ISLANDS (MALVINAS)|FAROE ISLANDS:FAROE ISLANDS|FIJI:FIJI|FINLAND:FINLAND|FRANCE:FRANCE|FRENCH GUIANA:FRENCH GUIANA|FRENCH POLYNESIA:FRENCH POLYNESIA|FRENCH SOUTHERN TERRITORIES:FRENCH SOUTHERN TERRITORIES|GABON:GABON|GAMBIA:GAMBIA|GEORGIA:GEORGIA|GERMANY:GERMANY|GHANA:GHANA|GIBRALTAR:GIBRALTAR|GREECE:GREECE|GREENLAND:GREENLAND|GRENADA:GRENADA|GUADELOUPE:GUADELOUPE|GUAM:GUAM|GUATEMALA:GUATEMALA|GUINEA:GUINEA|GUINEA-BISSAU:GUINEA-BISSAU|GUYANA:GUYANA|HAITI:HAITI|HEARD AND MC DONALD ISLANDS:HEARD AND MC DONALD ISLANDS|HONDURAS:HONDURAS|HONG KONG:HONG KONG|HUNGARY:HUNGARY|ICELAND:ICELAND|INDIA:INDIA|INDONESIA:INDONESIA|IRAN (ISLAMIC REPUBLIC OF):IRAN (ISLAMIC REPUBLIC OF)|IRAQ:IRAQ|IRELAND:IRELAND|ISRAEL:ISRAEL|ITALY:ITALY|JAMAICA:JAMAICA|JAPAN:JAPAN|JORDAN:JORDAN|KAZAKHSTAN:KAZAKHSTAN|KENYA:KENYA|KIRIBATI:KIRIBATI|KUWAIT:KUWAIT|KYRGYZSTAN:KYRGYZSTAN|LAO PEOPLE'S DEMOCRATIC REPUBLIC:LAO PEOPLE'S DEMOCRATIC REPUBLIC|LATVIA:LATVIA|LEBANON:LEBANON|LESOTHO:LESOTHO|LIBERIA:LIBERIA|LIBYAN ARAB JAMAHIRIYA:LIBYAN ARAB JAMAHIRIYA|LIECHTENSTEIN:LIECHTENSTEIN|LITHUANIA:LITHUANIA|LUXEMBOURG:LUXEMBOURG|MACAU:MACAU|MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF:MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF|MADAGASCAR:MADAGASCAR|MALAWI:MALAWI|MALAYSIA:MALAYSIA|MALDIVES:MALDIVES|MALI:MALI|MALTA:MALTA|MARSHALL ISLANDS:MARSHALL ISLANDS|MARTINIQUE:MARTINIQUE|MAURITANIA:MAURITANIA|MAURITIUS:MAURITIUS|MAYOTTE:MAYOTTE|MEXICO:MEXICO|MICRONESIA, FEDERATED STATES OF:MICRONESIA, FEDERATED STATES OF|MOLDOVA, REPUBLIC OF:MOLDOVA, REPUBLIC OF|MONACO:MONACO|MONGOLIA:MONGOLIA|MONTSERRAT:MONTSERRAT|MOROCCO:MOROCCO|MOZAMBIQUE:MOZAMBIQUE|MYANMAR:MYANMAR|NAMIBIA:NAMIBIA|NAURU:NAURU|NEPAL:NEPAL|NETHERLANDS:NETHERLANDS|NETHERLANDS ANTILLES:NETHERLANDS ANTILLES|NEW CALEDONIA:NEW CALEDONIA|NEW ZEALAND:NEW ZEALAND|NICARAGUA:NICARAGUA|NIGER:NIGER|NIGERIA:NIGERIA|NIUE:NIUE|NORFOLK ISLAND:NORFOLK ISLAND|KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF:KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF|NORTHERN MARIANA ISLANDS:NORTHERN MARIANA ISLANDS|NORWAY:NORWAY|OMAN:OMAN|PAKISTAN:PAKISTAN|PALAU:PALAU|PALESTINIAN TERRITORY, Occupied:PALESTINIAN TERRITORY, Occupied|PANAMA:PANAMA|PAPUA NEW GUINEA:PAPUA NEW GUINEA|PARAGUAY:PARAGUAY|PERU:PERU|PHILIPPINES:PHILIPPINES|PITCAIRN:PITCAIRN|POLAND:POLAND|PORTUGAL:PORTUGAL|PUERTO RICO:PUERTO RICO|QATAR:QATAR|REUNION:REUNION|ROMANIA:ROMANIA|RUSSIAN FEDERATION:RUSSIAN FEDERATION|RWANDA:RWANDA|SAINT HELENA:SAINT HELENA|SAINT KITTS AND NEVIS:SAINT KITTS AND NEVIS|SAINT LUCIA:SAINT LUCIA|SAINT PIERRE AND MIQUELON:SAINT PIERRE AND MIQUELON|SAINT VINCENT AND THE GRENADINES:SAINT VINCENT AND THE GRENADINES|SAMOA:SAMOA|SAN MARINO:SAN MARINO|SAO TOME AND PRINCIPE:SAO TOME AND PRINCIPE|SAUDI ARABIA:SAUDI ARABIA|SENEGAL:SENEGAL|SERBIA AND MONTENEGRO:SERBIA AND MONTENEGRO|SEYCHELLES:SEYCHELLES|SIERRA LEONE:SIERRA LEONE|SINGAPORE:SINGAPORE|SLOVAKIA:SLOVAKIA|SLOVENIA:SLOVENIA|SOLOMON ISLANDS:SOLOMON ISLANDS|SOMALIA:SOMALIA|SOUTH AFRICA:SOUTH AFRICA|SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS:SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS|KOREA, REPUBLIC OF:KOREA, REPUBLIC OF|SPAIN:SPAIN|SRI LANKA:SRI LANKA|SUDAN:SUDAN|SURINAME:SURINAME|SVALBARD AND JAN MAYEN ISLANDS:SVALBARD AND JAN MAYEN ISLANDS|SWAZILAND:SWAZILAND|SWEDEN:SWEDEN|SWITZERLAND:SWITZERLAND|SYRIAN ARAB REPUBLIC:SYRIAN ARAB REPUBLIC|TAIWAN:TAIWAN|TAJIKISTAN:TAJIKISTAN|TANZANIA, UNITED REPUBLIC OF:TANZANIA, UNITED REPUBLIC OF|THAILAND:THAILAND|TIMOR-LESTE:TIMOR-LESTE|TOGO:TOGO|TOKELAU:TOKELAU|TONGA:TONGA|TRINIDAD AND TOBAGO:TRINIDAD AND TOBAGO|TUNISIA:TUNISIA|TURKEY:TURKEY|TURKMENISTAN:TURKMENISTAN|TURKS AND CAICOS ISLANDS:TURKS AND CAICOS ISLANDS|TUVALU:TUVALU|UGANDA:UGANDA|UNITED KINGDOM:UNITED KINGDOM|UKRAINE:UKRAINE|UNITED ARAB EMIRATES:UNITED ARAB EMIRATES|URUGUAY:URUGUAY|UNITED STATES:UNITED STATES|UNITED STATES MINOR OUTLYING ISLANDS:UNITED STATES MINOR OUTLYING ISLANDS|UZBEKISTAN:UZBEKISTAN|VANUATU:VANUATU|VATICAN CITY STATE (HOLY SEE):VATICAN CITY STATE (HOLY SEE)|VENEZUELA:VENEZUELA|VIET NAM:VIET NAM|VIRGIN ISLANDS (BRITISH):VIRGIN ISLANDS (BRITISH)|VIRGIN ISLANDS (U.S.):VIRGIN ISLANDS (U.S.)|WALLIS AND FUTUNA ISLANDS:WALLIS AND FUTUNA ISLANDS|WESTERN SAHARA:WESTERN SAHARA|YEMEN:YEMEN|ZAMBIA:ZAMBIA|ZIMBABWE:ZIMBABWE</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Platform__c" title="Platform">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Yes:Yes|No:No</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Number_of_channels__c" title="Number of channels">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">One - Print &amp; Online w/paywall or Foreign Lang:One - Print &amp; Online w/paywall or Foreign Lang|One - Print or Online Free View English:One - Print or Online Free View English|Two - Print &amp; Online w/paywall or Foreign Lang:Two - Print &amp; Online w/paywall or Foreign Lang|Two - Print &amp; Online Free View English:Two - Print &amp; Online Free View English|Three or more - Apps w/paywall or Foreign Lang:Three or more - Apps w/paywall or Foreign Lang|Three or more - Apps Free View English:Three or more - Apps Free View English</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="No_of_Countries__c" title="No of Countries">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">1:1|2:2|3:3|4+:4+</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Exclusivity__c" title="Exclusivity">
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Total Exclusivity:Total Exclusivity|Sector Exclusivity:Sector Exclusivity|Print or Online Exclusivity:Print or Online Exclusivity</valueConstraint>
+                <valueConstraint name="unrestricted">true</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Client_Publications__c" title="Client Publications">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+        <apiParam group="fields" name="Client_Website__c" title="Client Website">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+      </generatedParameters>
+    </apiCall>
+  </steps>
+</testCase>
